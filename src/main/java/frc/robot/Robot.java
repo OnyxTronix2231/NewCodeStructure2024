@@ -2,9 +2,9 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
-import frc.robot.robot_control.BackgroundCommands;
-import frc.robot.robot_control.DeputyOi;
-import frc.robot.robot_control.DriverOi;
+import frc.robot.robotControl.BackgroundCommands;
+import frc.robot.robotControl.DeputyOi;
+import frc.robot.robotControl.DriverOi;
 
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to

@@ -1,4 +1,4 @@
-package frc.robot.robot_control;
+package frc.robot.robotControl;
 
 import commandControl.CommandConsoleController;
 import commandControl.CommandOnyxXboxController;
