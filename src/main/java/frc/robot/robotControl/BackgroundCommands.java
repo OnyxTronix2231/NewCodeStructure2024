@@ -1,4 +1,4 @@
-package frc.robot.robot_control;
+package frc.robot.robotControl;
 
 /**
  * This class create "default commands" for subsystems.
