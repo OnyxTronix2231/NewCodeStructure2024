@@ -8,7 +8,6 @@ public class DriveTrain extends SubsystemBase {
 
     private static DriveTrain instance;
     private DriveTrainComponents driveTrainComponents;
-    public double forwardSpeedValue;
 
     private DriveTrain(DriveTrainComponents driveTrainComponents) {
         this.driveTrainComponents = driveTrainComponents;
@@ -24,10 +23,16 @@ public class DriveTrain extends SubsystemBase {
 
     public void arcadeDrive(double speed, double rotation) {
         driveTrainComponents.getDifferentialDrive()
-                .arcadeDrive(forwardSpeedValue, rotation, false);
+                .arcadeDrive(speed, rotation, false);
     }
 
     public void stop() {
         arcadeDrive(0.0, 0.0);
+    }
+
+
+    // this function is only relevant for shuffleboard example.
+    public double getCurrent() {
+        return driveTrainComponents.getLeftMasterMotor().getStatorCurrent();
     }
 }
