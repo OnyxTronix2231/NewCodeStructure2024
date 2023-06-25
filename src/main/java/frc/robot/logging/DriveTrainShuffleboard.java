@@ -15,5 +15,7 @@ public class DriveTrainShuffleboard {
         tab = Shuffleboard.getTab("DriveTrain");
 
         tab.addNumber("motorCurrent", driveTrain::getCurrent);
+
+        //tab.addDouble("EncoderCounter", Swerve.getinstance.getEncoderUnits);
     }
 }
