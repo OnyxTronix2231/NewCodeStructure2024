@@ -4,6 +4,7 @@ import edu.wpi.first.math.kinematics.ChassisSpeeds;
 import edu.wpi.first.math.kinematics.SwerveModulePosition;
 import edu.wpi.first.math.kinematics.SwerveModuleState;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.logging.DriveTrainShuffleBoard;
 import frc.robot.subsystems.driveTrain.features.KeepAngleController;
 import frc.robot.subsystems.driveTrain.features.PoseEstimator;
 import frc.robot.subsystems.driveTrain.features.SwerveModule;
@@ -24,14 +25,13 @@ public class DriveTrain extends SubsystemBase {
             module.resetToAbsolute();
         }
     }
-
     public SwerveModulePosition[] getSwerveModulesPosition() {
         int length = components.getSwerveModules().length;
         SwerveModulePosition[] swerveModulePositions = new SwerveModulePosition[length];
-        for (int i = 0; i < length; i++) {
+        for (int i = 0; i <length ; i++) {
             swerveModulePositions[i] = components.getSwerveModules()[i].getPosition();
         }
-        return swerveModulePositions;
+        return  swerveModulePositions;
     }
 
     public ChassisSpeeds getSpeedsRTR(double xSpeed, double ySpeed, double rotSpeed) {
@@ -78,7 +78,8 @@ public class DriveTrain extends SubsystemBase {
                     rawYSpeed,
                     rawRotationSpeed
             );
-        } else {
+        }
+        else {
             speeds = getSpeedsRTR(
                     rawXSpeed,
                     rawYSpeed,
@@ -107,12 +108,13 @@ public class DriveTrain extends SubsystemBase {
         }
     }
 
-    private static DriveTrain instance ;
+    private static DriveTrain instance;
 
     public static void init(DriveTrainComponents components) {
         if (instance == null) {
             instance = new DriveTrain(components);
         }
+        new DriveTrainShuffleBoard(instance, instance.components);
     }
 
     public static DriveTrain getInstance() {

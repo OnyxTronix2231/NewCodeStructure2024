@@ -26,8 +26,8 @@ public class DriverOi {
         Trigger resetPose = controller.centerLeft();
         Trigger moveByDistance = controller.rightTrigger();
 
-        CommandJoystickAxis xAxis = controller.leftXAxis();
-        CommandJoystickAxis yAxis = controller.leftYAxis();
+        CommandJoystickAxis xAxis = controller.leftYAxis();
+        CommandJoystickAxis yAxis = controller.leftXAxis();
         CommandJoystickAxis rotAxis = controller.rightXAxis();
 
         driveTrain.getInstance().setDefaultCommand(new SwerveDrive(

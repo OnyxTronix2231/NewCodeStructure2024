@@ -7,6 +7,5 @@ import frc.robot.subsystems.driveTrain.features.PoseEstimator;
 public class ResetPose extends InstantCommand {
     public ResetPose() {
         super(()-> PoseEstimator.getInstance().setPose2d(new Pose2d()));
-        addRequirements(PoseEstimator.getInstance());
     }
 }
