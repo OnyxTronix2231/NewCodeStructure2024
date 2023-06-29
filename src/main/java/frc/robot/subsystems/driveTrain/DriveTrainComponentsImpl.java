@@ -1,65 +1,62 @@
 package frc.robot.subsystems.driveTrain;
 
-import com.ctre.phoenix.motorcontrol.NeutralMode;
-import com.ctre.phoenix.motorcontrol.can.TalonFXConfiguration;
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
-import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import com.ctre.phoenix.sensors.WPI_Pigeon2;
+import edu.wpi.first.math.kinematics.SwerveModuleState;
+import frc.robot.subsystems.driveTrain.features.SwerveModule;
 
-import static frc.robot.subsystems.driveTrain.DriveTrainConstants.ComponentsConstants.*;
+import static frc.robot.subsystems.driveTrain.DriveTrainConstants.*;
 
 public class DriveTrainComponentsImpl implements DriveTrainComponents {
-    private final WPI_TalonFX leftMasterMotor;
-    private final WPI_TalonFX leftSlaveMotor;
-    private final WPI_TalonFX rightMasterMotor;
-    private final WPI_TalonFX rightSlaveMotor;
-    private final DifferentialDrive differentialDrive;
+    private WPI_Pigeon2 pigeon;
+    private SwerveModule[] modules;
 
     public DriveTrainComponentsImpl() {
-        leftMasterMotor = new WPI_TalonFX(RIGHT_MASTER_MOTOR_PORT);
-        leftMasterMotor.configFactoryDefault();
-        leftMasterMotor.configAllSettings(getFalconConfiguration());
-        leftMasterMotor.setNeutralMode(NeutralMode.Brake);
+        SwerveModule module_FL = new SwerveModule(
+                FRONT_LEFT_DRIVE_MOTOR_ID,
+                FRONT_lEFT_TURNING_MOTOR_ID,
+                FRONT_LEFT_TURNING_ENCODER_ID,
+                ANGLE_OFFSET_FL
 
-        leftSlaveMotor = new WPI_TalonFX(RIGHT_SLAVE_MOTOR_PORT);
-        leftSlaveMotor.follow(leftMasterMotor);
-        leftSlaveMotor.configAllSettings(getFalconConfiguration());
-        leftSlaveMotor.setNeutralMode(NeutralMode.Brake);
-        leftSlaveMotor.follow(leftMasterMotor);
+        );
+        SwerveModule module_FR = new SwerveModule(
+                FRONT_RIGHT_DRIVE_MOTOR_ID,
+                FRONT_RIGHT_TURNING_MOTOR_ID,
+                FRONT_RIGHT_TURNING_ENCODER_ID,
+                ANGLE_OFFSET_FR
 
-        rightMasterMotor = new WPI_TalonFX(LEFT_MASTER_MOTOR_PORT);
-        rightMasterMotor.configFactoryDefault();
-        rightMasterMotor.configAllSettings(getFalconConfiguration());
-        rightMasterMotor.setInverted(true);
-        rightMasterMotor.setNeutralMode(NeutralMode.Brake);
+        );
+        SwerveModule module_BL = new SwerveModule(
+                BOTTOM_LEFT_DRIVE_MOTOR_ID,
+                BOTTOM_LEFT_TURNING_MOTOR_ID,
+                BOTTOM_LEFT_TURNING_ENCODER_ID,
+                ANGLE_OFFSET_BL
 
-        rightSlaveMotor = new WPI_TalonFX(LEFT_SLAVE_MOTOR_PORT);
-        rightSlaveMotor.follow(rightMasterMotor);
-        rightSlaveMotor.configAllSettings(getFalconConfiguration());
-        rightSlaveMotor.setInverted(true);
-        rightSlaveMotor.setNeutralMode(NeutralMode.Brake);
-        rightSlaveMotor.follow(rightMasterMotor);
+        );
+        SwerveModule module_BR = new SwerveModule(
+                BOTTOM_RIGHT_DRIVE_MOTOR_ID,
+                BOTTOM_RIGHT_TURNING_MOTOR_ID,
+                BOTTOM_RIGHT_TURNING_ENCODER_ID,
+                ANGLE_OFFSET_BR
 
-        differentialDrive = new DifferentialDrive(leftMasterMotor, rightMasterMotor);
-        differentialDrive.setSafetyEnabled(true);
+        );
+
+        modules = new SwerveModule[] {
+                module_FL,
+                module_FR,
+                module_BL,
+                module_BR
+        };
+
+    }
+
+
+    @Override
+    public SwerveModule[] getSwerveModules() {
+        return modules;
     }
 
     @Override
-    public WPI_TalonFX getLeftMasterMotor() {
-        return leftMasterMotor;
-    }
-
-    @Override
-    public WPI_TalonFX getRightMasterMotor() {
-        return rightMasterMotor;
-    }
-
-    @Override
-    public DifferentialDrive getDifferentialDrive() {
-        return differentialDrive;
-    }
-
-    private TalonFXConfiguration getFalconConfiguration() {
-        final TalonFXConfiguration config = new TalonFXConfiguration();
-        return config;
+    public SwerveModuleState[] getSwerveModuleStates() {
+        return null; //woohoo
     }
 }
