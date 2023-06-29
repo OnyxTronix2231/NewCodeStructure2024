@@ -5,7 +5,7 @@ import edu.wpi.first.wpilibj.AddressableLEDBuffer;
 
 public interface LEDComponents {
 
-    AddressableLED getLed();
+    AddressableLED getStrip();
 
     AddressableLEDBuffer getBuffer();
 }

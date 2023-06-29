@@ -1,27 +1,28 @@
 package frc.robot.led;
 
+import static frc.robot.led.LEDConstants.PORT;
+import static frc.robot.led.LEDConstants.STRIP_LENGTH;
+
 import edu.wpi.first.wpilibj.AddressableLED;
 import edu.wpi.first.wpilibj.AddressableLEDBuffer;
 
-import static frc.robot.led.LEDConstants.*;
-
 public class LEDComponentsImpl implements LEDComponents {
 
-    private final AddressableLED ledStrip;
-    private final AddressableLEDBuffer ledBuffer;
+    private final AddressableLED Strip;
+    private final AddressableLEDBuffer Buffer;
 
     public LEDComponentsImpl() {
-        ledStrip = new AddressableLED(LED_PORT);
-        ledBuffer = new AddressableLEDBuffer(LED_STRIP_LENGTH);
+        Strip = new AddressableLED(PORT);
+        Buffer = new AddressableLEDBuffer(STRIP_LENGTH);
     }
 
     @Override
-    public AddressableLED getLed() {
-        return ledStrip;
+    public AddressableLED getStrip() {
+        return Strip;
     }
 
     @Override
     public AddressableLEDBuffer getBuffer() {
-        return ledBuffer;
+        return Buffer;
     }
 }

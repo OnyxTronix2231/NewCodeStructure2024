@@ -1,34 +1,35 @@
 package frc.robot.led;
 
-import edu.wpi.first.wpilibj.util.Color;
 import static frc.robot.led.LEDConstants.*;
 
+import edu.wpi.first.wpilibj.util.Color;
+
 public class LED {
+
     private final LEDComponents components;
 
     private LED(LEDComponents components) {
         this.components = components;
     }
 
-    private void setOneLed(int i, Color color) {
-        components.getBuffer().setLED(i, color);
+    private void setOneLed(int ledIndex, Color color) {
+        components.getBuffer().setLED(ledIndex, color);
     }
 
     public void setStrip(Color color) {
-        for (int i = 0; i < LED_STRIP_LENGTH; i++)
-            setOneLed(i, color);
+        for (int ledIndex = 0; ledIndex < STRIP_LENGTH; ledIndex++)
+            setOneLed(ledIndex, color);
 
-        show();
+        update();
     }
 
     public void setStripOff() {
-        setStrip(new Color(0, 0, 0));
+        setStrip(BLACK);
     }
 
-    public void show() {
-        components.getLed().setData(components.getBuffer());
+    public void update() {
+        components.getStrip().setData(components.getBuffer());
     }
-
 
     private static LED instance;
 
