@@ -4,11 +4,10 @@ import edu.wpi.first.math.kinematics.ChassisSpeeds;
 import edu.wpi.first.math.kinematics.SwerveModulePosition;
 import edu.wpi.first.math.kinematics.SwerveModuleState;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import frc.robot.logging.DriveTrainShuffleBoard;
 import frc.robot.subsystems.driveTrain.features.KeepAngleController;
 import frc.robot.subsystems.driveTrain.features.PoseEstimator;
 import frc.robot.subsystems.driveTrain.features.SwerveModule;
-
+import frc.robot.logging.DriveTrainShuffleboard;
 import static frc.robot.subsystems.driveTrain.DriveTrainConstants.*;
 
 public class DriveTrain extends SubsystemBase {
@@ -114,7 +113,7 @@ public class DriveTrain extends SubsystemBase {
         if (instance == null) {
             instance = new DriveTrain(components);
         }
-        new DriveTrainShuffleBoard(instance, instance.components);
+        new DriveTrainShuffleboard(components);
     }
 
     public static DriveTrain getInstance() {

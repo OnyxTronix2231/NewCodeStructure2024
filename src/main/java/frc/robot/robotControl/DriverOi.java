@@ -37,6 +37,6 @@ public class DriverOi {
                 () -> true
         ));
         resetPose.onTrue(new ResetPose());
-        moveByDistance.whileTrue(new MoveByDistance(new Pose2d(3, 0, Rotation2d.fromDegrees(-90))));
+        moveByDistance.whileTrue(new MoveByDistance(new Pose2d(0, 0, Rotation2d.fromDegrees(90))));
     }
 }

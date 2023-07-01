@@ -21,9 +21,9 @@ public class AutoPilotController {
 
     public AutoPilotController(Pose2d deltaPose) {
         ShuffleboardTab tab = Shuffleboard.getTab("PoseEstimator");
-        tab.addNumber("errorX",()->controllerX.getPositionError());
-        tab.addNumber("errorY",()->controllerY.getPositionError());
-        tab.addNumber("errorRot",()->controllerRot.getPositionError());
+//        tab.addNumber("errorX",()->controllerX.getPositionError());
+//        tab.addNumber("errorY",()->controllerY.getPositionError());
+//        tab.addNumber("errorRot",()->controllerRot.getPositionError());
 
         controllerX = new PIDController(
                 AUTO_PILOT_PID_X.getKp(),
