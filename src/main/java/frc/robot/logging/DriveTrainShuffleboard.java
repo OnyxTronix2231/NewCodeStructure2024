@@ -5,12 +5,15 @@ import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.math.geometry.Rotation3d;
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
+import edu.wpi.first.wpilibj.util.Color;
+import edu.wpi.first.wpilibj2.command.InstantCommand;
 import frc.robot.commands.driveTrain.MoveByDistance;
 import frc.robot.subsystems.driveTrain.DriveTrain;
 import frc.robot.subsystems.driveTrain.DriveTrainComponents;
 import frc.robot.subsystems.driveTrain.DriveTrainComponentsImpl;
 import frc.robot.subsystems.driveTrain.features.PoseEstimator;
 import frc.robot.subsystems.driveTrain.features.SwerveModule;
+import frc.robot.led.LED;
 
 public class DriveTrainShuffleboard {
 
@@ -36,6 +39,8 @@ public class DriveTrainShuffleboard {
         tab.addNumber("Robot's angle", () -> PoseEstimator.getInstance().getHeading().getDegrees());
 
         tab.add("Turning 90 ",new MoveByDistance(new Pose2d(0, 0, Rotation2d.fromDegrees(90))));
+
+        tab.add("change color", new InstantCommand(()-> LED.getInstance().setStrip(Color.kAqua)));
 
     }
 }
