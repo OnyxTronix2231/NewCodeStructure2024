@@ -1,3 +1,6 @@
+import org.gradle.api.JavaVersion
+import org.gradle.api.tasks.compile.JavaCompile
+
 plugins {
     id "java"
     id "edu.wpi.first.GradleRIO" version "2023.4.3"
