@@ -4,17 +4,19 @@ import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
 import frc.robot.subsystems.driveTrain.DriveTrain;
 import frc.robot.subsystems.driveTrain.DriveTrainComponents;
-import frc.robot.subsystems.driveTrain.features.PoseEstimator;
-import frc.robot.subsystems.driveTrain.features.SwerveModule;
 
-public class DriveTrainShuffleBoard {
+public class DriveTrainShuffleboard {
 
-    public DriveTrainShuffleBoard(DriveTrain driveTrain, DriveTrainComponents components) {
+    private DriveTrain driveTrain;
+    private ShuffleboardTab tab;
 
-        ShuffleboardTab tab = Shuffleboard.getTab("Swerve");
-        SwerveModule[] swerveModules = components.getSwerveModules();
-        tab.addString("Pose",()-> PoseEstimator.getInstance().getPose2d().toString());
-        tab.addNumber("CurrentModuleAngle", () -> swerveModules[0].getCurrentAbsoluteDeg());
-        tab.addNumber("cancoderAng", () -> swerveModules[0].getAbsEncDeg() - swerveModules[0].getAngleOffset());}
+    public DriveTrainShuffleboard(DriveTrainComponents components) {
+        driveTrain = DriveTrain.getInstance();
 
+        tab = Shuffleboard.getTab("DriveTrain");
+
+        tab.addNumber("motorCurrent", driveTrain::getCurrent);
+
+        //tab.addDouble("EncoderCounter", components.getLeftMasterMotor().);
+    }
 }
