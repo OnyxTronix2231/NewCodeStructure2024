@@ -105,3 +105,7 @@ gradle-app.setting
 # End of https://www.gitignore.io/api/gradle,intellij+all
 
 imgui.ini
+.settings/org.eclipse.buildship.core.prefs
+.settings/org.eclipse.jdt.core.prefs
+.project
+.classpath
