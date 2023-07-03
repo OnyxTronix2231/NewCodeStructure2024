@@ -15,7 +15,6 @@ import static frc.robot.subsystems.driveTrain.DriveTrainConstants.*;
 
 public class PoseEstimator extends SubsystemBase {
     private final DriveTrain driveTrain;
-    private final ShuffleboardTab tab = Shuffleboard.getTab("PoseEstimator");
     private WPI_Pigeon2 pigeon;
     private SwerveDrivePoseEstimator swerveDrivePoseEstimator;
     private final Field2d currentPose = new Field2d();
@@ -31,8 +30,6 @@ public class PoseEstimator extends SubsystemBase {
                 driveTrain.getSwerveModulesPosition(),
                 new Pose2d()
         );
-        tab.addString("Pose", this::getFormattedPose).withPosition(0, 0).withSize(2, 0);
-        tab.add("Field", currentPose).withPosition(2, 0).withSize(6, 4);
     }
 
     @Override
@@ -57,12 +54,17 @@ public class PoseEstimator extends SubsystemBase {
         KeepAngleController.getInstance().setKeepedAngle(getHeading());
     }
 
-    private String getFormattedPose() {
+
+    public String getFormattedPose() {
         var pose = getPose2d();
         return String.format("(%.2f, %.2f) %.2f degrees",
                 pose.getX(),
                 pose.getY(),
                 pose.getRotation().getDegrees());
+    }
+
+    public Field2d getFieldPose() {
+        return currentPose;
     }
 
     public Rotation2d getHeading() {

@@ -24,27 +24,29 @@ public class KeepAngleController {
 
         keepAngleController.enableContinuousInput(-Math.PI, Math.PI);
         keepedAngle = PoseEstimator.getInstance().getHeading().getDegrees();
-        timer.reset();
         timer.start();
     }
 
     public ChassisSpeeds calculate(ChassisSpeeds chassisSpeeds) {
         double output = chassisSpeeds.omegaRadiansPerSecond;
         double currentTime = timer.get();
-        if (Math.abs(chassisSpeeds.omegaRadiansPerSecond) >= MIN_TURNING_RAD_PS) {
+        if (Math.abs(chassisSpeeds.omegaRadiansPerSecond) >= MIN_TURNING_RAD_PS)  { //If the driver commands the robot to rotate set the
+            // last rotate time to the current time
             lastRotationTIme = currentTime;
         }
         if (Math.abs(chassisSpeeds.vxMetersPerSecond) >= MIN_VELOCITY_MPS
                 || Math.abs(chassisSpeeds.vyMetersPerSecond) >= MIN_VELOCITY_MPS) {
+            // if driver commands robot to translate set the last drive time to the current time
             lastDriveTime = currentTime;
         }
         if (currentTime - lastRotationTIme < KEEP_ANGLE_ROTATION_DELAY) {
+            //update keepedAngle after RotateCommand
             keepedAngle = PoseEstimator.getInstance().getHeading().getRadians();
         } else if (Math.abs(chassisSpeeds.vxMetersPerSecond) >= MIN_VELOCITY_MPS
                 || Math.abs(chassisSpeeds.vyMetersPerSecond) >= MIN_VELOCITY_MPS) {
+            //run keepAnglePID until 0.75 after drive stops.
             output = keepAngleController.calculate((PoseEstimator.getInstance().getHeading().getRadians()), keepedAngle);
         }
-
         return new ChassisSpeeds(
                 chassisSpeeds.vxMetersPerSecond,
                 chassisSpeeds.vyMetersPerSecond,

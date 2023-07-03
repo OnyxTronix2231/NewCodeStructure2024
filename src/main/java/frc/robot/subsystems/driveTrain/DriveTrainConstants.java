@@ -118,14 +118,16 @@ public class DriveTrainConstants {
     }
 
     public static SwerveModuleState optimize(SwerveModuleState target, double currentRelative) {
-        double currentAbs = (currentRelative % DEG_PER_ROTATION + DEG_PER_ROTATION) % DEG_PER_ROTATION;
-        double d1 = target.angle.getDegrees() - currentAbs;
-        double d2 = DEG_PER_ROTATION - Math.abs(d1);
 
-        double targetAbs = target.angle.getDegrees();
-        double speed = target.speedMetersPerSecond;
+        double currentAbs = (currentRelative % DEG_PER_ROTATION + DEG_PER_ROTATION) % DEG_PER_ROTATION; //java is stupid so we fixed their stupid modulus.
+        double d1 = target.angle.getDegrees() - currentAbs; // in 360 degrees circles there are 2 sides. this is side 1
+        double d2 = DEG_PER_ROTATION - Math.abs(d1); // this is side 2
 
-        if (Math.abs(d1) > 0.25 * DEG_PER_ROTATION && Math.abs(d2) > 0.25 * DEG_PER_ROTATION) {
+        double targetAbs = target.angle.getDegrees(); // set-point
+        double speed = target.speedMetersPerSecond; //set-point speed (SwerveModuleState returns angle and speed)
+
+        if (Math.abs(d1) > 0.25 * DEG_PER_ROTATION && Math.abs(d2) > 0.25 * DEG_PER_ROTATION) { // this function check if we can go to a closer angle and spin the wheel backwards,
+            // for example if we are at 300, and we want to go to 170, we will go to 350 and spin backwards.
             targetAbs = (targetAbs + (DEG_PER_ROTATION * 0.5)) % DEG_PER_ROTATION;
             d1 = targetAbs - currentAbs;
             d2 = DEG_PER_ROTATION - Math.abs(d1);
@@ -134,13 +136,14 @@ public class DriveTrainConstants {
 
         double rslt;
 
-        if (Math.abs(d1) > Math.abs(d2)) {
-            if (targetAbs > currentAbs) {
+        if (Math.abs(d1) > Math.abs(d2)) { //checks who are shortest
+            if (targetAbs > currentAbs) { // we had a problem that if we are at 170 deg, and we want to go to 160 deg,
+                // he will go to 180 so this fixes it.
                 rslt = -d2;
             } else {
                 rslt = d2;
             }
-        } else {
+        } else { // if d1 is lower so we choose him.
             rslt = d1;
         }
 

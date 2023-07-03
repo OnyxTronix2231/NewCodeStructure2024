@@ -7,5 +7,4 @@ public interface DriveTrainComponents {
 
     SwerveModule[] getSwerveModules();
 
-    SwerveModuleState[] getSwerveModuleStates();
 }

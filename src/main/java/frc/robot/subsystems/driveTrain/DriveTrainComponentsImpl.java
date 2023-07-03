@@ -51,8 +51,4 @@ public class DriveTrainComponentsImpl implements DriveTrainComponents {
         return modules;
     }
 
-    @Override
-    public SwerveModuleState[] getSwerveModuleStates() {
-        return null;
-    }
 }
