@@ -71,4 +71,3 @@ public class KeepAngleController {
         return instance;
     }
 }
-

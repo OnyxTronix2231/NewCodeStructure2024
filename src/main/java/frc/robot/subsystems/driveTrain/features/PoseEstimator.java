@@ -53,8 +53,7 @@ public class PoseEstimator extends SubsystemBase {
         );
         KeepAngleController.getInstance().setKeepedAngle(getHeading());
     }
-
-
+    
     public String getFormattedPose() {
         var pose = getPose2d();
         return String.format("(%.2f, %.2f) %.2f degrees",

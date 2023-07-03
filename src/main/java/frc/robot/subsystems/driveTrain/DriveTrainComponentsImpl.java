@@ -43,12 +43,10 @@ public class DriveTrainComponentsImpl implements DriveTrainComponents {
                 module_BL,
                 module_BR
         };
-
     }
 
     @Override
     public SwerveModule[] getSwerveModules() {
         return modules;
     }
-
 }

@@ -30,11 +30,13 @@ public class AutoPilotController {
                 AUTO_PILOT_PID_X.getKi(),
                 AUTO_PILOT_PID_X.getKd()
         );
+
         controllerY = new PIDController(
                 AUTO_PILOT_PID_Y.getKp(),
                 AUTO_PILOT_PID_Y.getKi(),
                 AUTO_PILOT_PID_Y.getKd()
         );
+
         controllerRot = new PIDController(
                 AUTO_PILOT_PID_ROT.getKp(),
                 AUTO_PILOT_PID_ROT.getKi(),
@@ -78,11 +80,23 @@ public class AutoPilotController {
 
     public ChassisSpeeds getLimitedSpeeds(double xSpeed, double ySpeed, double rotSpeed) {
         return driveTrain.getSpeedsRTF(
-                MathUtil.clamp(xSpeed, -MAX_VELOCITY_MPS * AUTO_PILOT_DRIVE_SENSITIVITY, MAX_VELOCITY_MPS * DRIVE_SENSITIVITY),
+                MathUtil.clamp(
+                        xSpeed,
+                        -MAX_VELOCITY_MPS * AUTO_PILOT_DRIVE_SENSITIVITY,
+                        MAX_VELOCITY_MPS * DRIVE_SENSITIVITY
+                ),
 
-                MathUtil.clamp(ySpeed, -MAX_VELOCITY_MPS * AUTO_PILOT_DRIVE_SENSITIVITY, MAX_VELOCITY_MPS * DRIVE_SENSITIVITY),
+                MathUtil.clamp(
+                        ySpeed,
+                        -MAX_VELOCITY_MPS * AUTO_PILOT_DRIVE_SENSITIVITY,
+                        MAX_VELOCITY_MPS * DRIVE_SENSITIVITY
+                ),
 
-                MathUtil.clamp(rotSpeed, -MAX_TURNING_RAD_PS * AUTO_PILOT_TURNING_SENSITIVITY, MAX_TURNING_RAD_PS * ROTATION_SENSITIVITY)
+                MathUtil.clamp(
+                        rotSpeed,
+                        -MAX_TURNING_RAD_PS * AUTO_PILOT_TURNING_SENSITIVITY,
+                        MAX_TURNING_RAD_PS * ROTATION_SENSITIVITY
+                )
         );
     }
 
