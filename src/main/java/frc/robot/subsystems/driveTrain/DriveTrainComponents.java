@@ -5,9 +5,7 @@ import frc.robot.subsystems.driveTrain.features.SwerveModule;
 
 public interface DriveTrainComponents {
 
-
     SwerveModule[] getSwerveModules();
 
     SwerveModuleState[] getSwerveModuleStates();
-
 }

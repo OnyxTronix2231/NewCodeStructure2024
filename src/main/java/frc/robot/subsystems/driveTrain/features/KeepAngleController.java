@@ -21,7 +21,8 @@ public class KeepAngleController {
                 KEEP_ANGLE_PID.getKi(),
                 KEEP_ANGLE_PID.getKd()
         );
-        keepAngleController.enableContinuousInput(-Math.PI,Math.PI);
+
+        keepAngleController.enableContinuousInput(-Math.PI, Math.PI);
         keepedAngle = PoseEstimator.getInstance().getHeading().getDegrees();
         timer.reset();
         timer.start();
@@ -30,7 +31,7 @@ public class KeepAngleController {
     public ChassisSpeeds calculate(ChassisSpeeds chassisSpeeds) {
         double output = chassisSpeeds.omegaRadiansPerSecond;
         double currentTime = timer.get();
-        if (Math.abs(chassisSpeeds.omegaRadiansPerSecond) >= MIN_TURNING_SPEED) {
+        if (Math.abs(chassisSpeeds.omegaRadiansPerSecond) >= MIN_TURNING_RAD_PS) {
             lastRotationTIme = currentTime;
         }
         if (Math.abs(chassisSpeeds.vxMetersPerSecond) >= MIN_VELOCITY_MPS
@@ -39,8 +40,7 @@ public class KeepAngleController {
         }
         if (currentTime - lastRotationTIme < KEEP_ANGLE_ROTATION_DELAY) {
             keepedAngle = PoseEstimator.getInstance().getHeading().getRadians();
-        }
-        else if (Math.abs(chassisSpeeds.vxMetersPerSecond) >= MIN_VELOCITY_MPS
+        } else if (Math.abs(chassisSpeeds.vxMetersPerSecond) >= MIN_VELOCITY_MPS
                 || Math.abs(chassisSpeeds.vyMetersPerSecond) >= MIN_VELOCITY_MPS) {
             output = keepAngleController.calculate((PoseEstimator.getInstance().getHeading().getRadians()), keepedAngle);
         }
@@ -51,6 +51,7 @@ public class KeepAngleController {
                 output
         );
     }
+
     public void setKeepedAngle(Rotation2d keepedAngle) {
         this.keepedAngle = keepedAngle.getRadians();
     }

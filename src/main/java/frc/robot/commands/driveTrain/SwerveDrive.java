@@ -9,7 +9,6 @@ import java.util.function.DoubleSupplier;
 
 import static frc.robot.subsystems.driveTrain.DriveTrainConstants.*;
 
-
 public class SwerveDrive extends CommandBase {
     private final DriveTrain driveTrain;
     private final DoubleSupplier inputXSupplier;
@@ -19,7 +18,6 @@ public class SwerveDrive extends CommandBase {
     private DriveInputFilters driveInputFiltersX;
     private DriveInputFilters driveInputFiltersY;
     private DriveInputFilters driveInputFiltersRot;
-
 
     public SwerveDrive(DoubleSupplier inputXSupplier, DoubleSupplier inputYSupplier, DoubleSupplier inputRotSupplier, BooleanSupplier isRTFSupplier) {
         this.driveTrain = DriveTrain.getInstance();

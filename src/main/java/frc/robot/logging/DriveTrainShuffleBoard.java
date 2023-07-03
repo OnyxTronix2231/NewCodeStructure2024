@@ -11,10 +11,12 @@ public class DriveTrainShuffleBoard {
 
     public DriveTrainShuffleBoard(DriveTrain driveTrain, DriveTrainComponents components) {
 
-        ShuffleboardTab tab = Shuffleboard.getTab("Swerve");
-        SwerveModule[] swerveModules = components.getSwerveModules();
-        tab.addString("Pose",()-> PoseEstimator.getInstance().getPose2d().toString());
-        tab.addNumber("CurrentModuleAngle", () -> swerveModules[0].getCurrentAbsoluteDeg());
-        tab.addNumber("cancoderAng", () -> swerveModules[0].getAbsEncDeg() - swerveModules[0].getAngleOffset());}
+        ShuffleboardTab SwerveTab = Shuffleboard.getTab("Swerve");
 
+        SwerveModule[] swerveModules = components.getSwerveModules();
+
+        SwerveTab.addString("Pose",()-> PoseEstimator.getInstance().getPose2d().toString());
+        SwerveTab.addNumber("CurrentModuleAngle", () -> swerveModules[0].getCurrentAbsoluteDeg());
+        SwerveTab.addNumber("cancoderAng", () -> swerveModules[0].getAbsEncDeg() - swerveModules[0].getAngleOffset());
+    }
 }

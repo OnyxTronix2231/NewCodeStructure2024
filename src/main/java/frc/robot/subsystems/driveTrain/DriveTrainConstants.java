@@ -61,26 +61,26 @@ public class DriveTrainConstants {
     // --------------------------------------------------------
 
     // controllers and drive settings
-    public static final PIDFTerms KEEP_ANGLE_PID = new PIDFTerms(20, 0.07, 0, 0);
-
-    public static final double KEEP_ANGLE_ROTATION_DELAY = 0.5;
-    public static final double KEEP_ANGLE_DRIVE_DELAY = 0.25;
-
-
-    public static final PIDFTerms DRIVE_MOTOR_PID = new PIDFTerms(0.1, 0, 0, 1023 / 21375);
-    public static final PIDFTerms TURNING_MOTOR_PID = new PIDFTerms(0.3, 0, 0, 0);
-    public static final int CRUISE_VEL = 17000;
-    public static final int ACC = 40000;
-    public static final int ACC_SMOOTHING = 0;
-    public static final double DRIVE_SENSITIVITY = 0.5;
-    public static final double ROTATION_SENSITIVITY = 0.5;
 
     public static final double MAX_TURNING_RAD_PS = 1.5 * Math.PI;
     public static final double MAX_VELOCITY_MPS = 4;
 
-
-    public static final double MIN_TURNING_SPEED = 0.4;
+    public static final double MIN_TURNING_RAD_PS = 0.4;
     public static final double MIN_VELOCITY_MPS = MAX_VELOCITY_MPS * 0.01;
+
+    public static final PIDFTerms DRIVE_MOTOR_PID = new PIDFTerms(0.1, 0, 0, 1023 / 21375);
+    public static final PIDFTerms TURNING_MOTOR_PID = new PIDFTerms(0.3, 0, 0, 0);
+    public static final int TURNING_MOTOR_CRUISE_VEL = 17000;
+    public static final int TURNING_MOTOR_ACC = 40000;
+    public static final int TURNING_MOTOR_ACC_SMOOTHING = 0;
+
+    public static final double DRIVE_SENSITIVITY = 0.5;
+    public static final double ROTATION_SENSITIVITY = 0.5;
+
+    public static final PIDFTerms KEEP_ANGLE_PID = new PIDFTerms(20, 0.07, 0, 0);
+
+    public static final double KEEP_ANGLE_ROTATION_DELAY = 0.5;
+    public static final double KEEP_ANGLE_DRIVE_DELAY = 0.25;
 
     public static final int MEDIAN_SAMPLES = 3;
     public static final int MEDIAN_SAMPLES_ROTATION = 5;
@@ -94,6 +94,7 @@ public class DriveTrainConstants {
     public static double AUTO_PILOT_TURNING_SENSITIVITY = 0.5;
     public static double AUTO_PILOT_DRIVE_TOLERANCE = 0.03;
     public static double AUTO_PILOT_ROTATION_TOLERANCE = Math.toRadians(5);
+
     public static double epdToMps(double epd) {
         return (epd * 10 * WHEEL_PERIMETER) / (ENC_UNITS_PER_ROTATION * DRIVER_CONVERSION_RATE);
     }

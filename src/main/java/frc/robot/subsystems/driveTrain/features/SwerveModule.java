@@ -20,7 +20,6 @@ import sensors.counter.TalonEncoder;
 
 import static frc.robot.subsystems.driveTrain.DriveTrainConstants.*;
 
-
 public class SwerveModule {
     private final WPI_TalonFX driveMotor;
     private final WPI_TalonFX turningMotor;
@@ -49,9 +48,9 @@ public class SwerveModule {
                 turningMotor,
                 turningEncoder,
                 TURNING_MOTOR_PID,
-                ACC,
-                CRUISE_VEL,
-                ACC_SMOOTHING
+                TURNING_MOTOR_ACC,
+                TURNING_MOTOR_CRUISE_VEL,
+                TURNING_MOTOR_ACC_SMOOTHING
         );
 
         CtreEncoder driverEncoder = new TalonEncoder(driveMotor);

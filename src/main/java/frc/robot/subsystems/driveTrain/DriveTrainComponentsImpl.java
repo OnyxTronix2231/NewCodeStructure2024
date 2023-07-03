@@ -1,13 +1,11 @@
 package frc.robot.subsystems.driveTrain;
 
-import com.ctre.phoenix.sensors.WPI_Pigeon2;
 import edu.wpi.first.math.kinematics.SwerveModuleState;
 import frc.robot.subsystems.driveTrain.features.SwerveModule;
 
 import static frc.robot.subsystems.driveTrain.DriveTrainConstants.*;
 
 public class DriveTrainComponentsImpl implements DriveTrainComponents {
-    private WPI_Pigeon2 pigeon;
     private SwerveModule[] modules;
 
     public DriveTrainComponentsImpl() {
@@ -16,31 +14,30 @@ public class DriveTrainComponentsImpl implements DriveTrainComponents {
                 FRONT_lEFT_TURNING_MOTOR_ID,
                 FRONT_LEFT_TURNING_ENCODER_ID,
                 ANGLE_OFFSET_FL
-
         );
+
         SwerveModule module_FR = new SwerveModule(
                 FRONT_RIGHT_DRIVE_MOTOR_ID,
                 FRONT_RIGHT_TURNING_MOTOR_ID,
                 FRONT_RIGHT_TURNING_ENCODER_ID,
                 ANGLE_OFFSET_FR
-
         );
+
         SwerveModule module_BL = new SwerveModule(
                 BOTTOM_LEFT_DRIVE_MOTOR_ID,
                 BOTTOM_LEFT_TURNING_MOTOR_ID,
                 BOTTOM_LEFT_TURNING_ENCODER_ID,
                 ANGLE_OFFSET_BL
-
         );
+
         SwerveModule module_BR = new SwerveModule(
                 BOTTOM_RIGHT_DRIVE_MOTOR_ID,
                 BOTTOM_RIGHT_TURNING_MOTOR_ID,
                 BOTTOM_RIGHT_TURNING_ENCODER_ID,
                 ANGLE_OFFSET_BR
-
         );
 
-        modules = new SwerveModule[] {
+        modules = new SwerveModule[]{
                 module_FL,
                 module_FR,
                 module_BL,
@@ -49,7 +46,6 @@ public class DriveTrainComponentsImpl implements DriveTrainComponents {
 
     }
 
-
     @Override
     public SwerveModule[] getSwerveModules() {
         return modules;
@@ -57,6 +53,6 @@ public class DriveTrainComponentsImpl implements DriveTrainComponents {
 
     @Override
     public SwerveModuleState[] getSwerveModuleStates() {
-        return null; //woohoo
+        return null;
     }
 }

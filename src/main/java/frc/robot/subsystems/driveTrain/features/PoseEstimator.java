@@ -8,15 +8,14 @@ import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
 import edu.wpi.first.wpilibj.smartdashboard.Field2d;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.logging.DriveTrainShuffleBoard;
 import frc.robot.subsystems.driveTrain.DriveTrain;
 
-import static frc.robot.subsystems.driveTrain.DriveTrainConstants.KINEMATICS;
-import static frc.robot.subsystems.driveTrain.DriveTrainConstants.PIGEON2_ID;
-
+import static frc.robot.subsystems.driveTrain.DriveTrainConstants.*;
 
 public class PoseEstimator extends SubsystemBase {
-    private final ShuffleboardTab tab = Shuffleboard.getTab("PoseEstimator");
     private final DriveTrain driveTrain;
+    private final ShuffleboardTab tab = Shuffleboard.getTab("PoseEstimator");
     private WPI_Pigeon2 pigeon;
     private SwerveDrivePoseEstimator swerveDrivePoseEstimator;
     private final Field2d currentPose = new Field2d();
@@ -34,7 +33,6 @@ public class PoseEstimator extends SubsystemBase {
         );
         tab.addString("Pose", this::getFormattedPose).withPosition(0, 0).withSize(2, 0);
         tab.add("Field", currentPose).withPosition(2, 0).withSize(6, 4);
-
     }
 
     @Override
@@ -70,6 +68,7 @@ public class PoseEstimator extends SubsystemBase {
     public Rotation2d getHeading() {
         return getPose2d().getRotation();
     }
+
     private static PoseEstimator instance;
 
     //pose estimator init will come after drivetrain init,

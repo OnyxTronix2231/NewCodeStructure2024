@@ -21,9 +21,9 @@ public class AutoPilotController {
 
     public AutoPilotController(Pose2d deltaPose) {
         ShuffleboardTab tab = Shuffleboard.getTab("PoseEstimator");
-        tab.addNumber("errorX",()->controllerX.getPositionError());
-        tab.addNumber("errorY",()->controllerY.getPositionError());
-        tab.addNumber("errorRot",()->controllerRot.getPositionError());
+        tab.addNumber("errorX", () -> controllerX.getPositionError());
+        tab.addNumber("errorY", () -> controllerY.getPositionError());
+        tab.addNumber("errorRot", () -> controllerRot.getPositionError());
 
         controllerX = new PIDController(
                 AUTO_PILOT_PID_X.getKp(),
@@ -79,14 +79,16 @@ public class AutoPilotController {
     public ChassisSpeeds getLimitedSpeeds(double xSpeed, double ySpeed, double rotSpeed) {
         return driveTrain.getSpeedsRTF(
                 MathUtil.clamp(xSpeed, -MAX_VELOCITY_MPS * AUTO_PILOT_DRIVE_SENSITIVITY, MAX_VELOCITY_MPS * DRIVE_SENSITIVITY),
+
                 MathUtil.clamp(ySpeed, -MAX_VELOCITY_MPS * AUTO_PILOT_DRIVE_SENSITIVITY, MAX_VELOCITY_MPS * DRIVE_SENSITIVITY),
+
                 MathUtil.clamp(rotSpeed, -MAX_TURNING_RAD_PS * AUTO_PILOT_TURNING_SENSITIVITY, MAX_TURNING_RAD_PS * ROTATION_SENSITIVITY)
         );
     }
 
     public boolean isFinished() {
-        return Math.abs(controllerRot.getPositionError()) <= AUTO_PILOT_ROTATION_TOLERANCE &&
-                Math.abs(controllerX.getPositionError()) <= AUTO_PILOT_DRIVE_TOLERANCE &&
-                Math.abs(controllerY.getPositionError()) <= AUTO_PILOT_DRIVE_TOLERANCE;
+        return  Math.abs(controllerX.getPositionError()) <= AUTO_PILOT_DRIVE_TOLERANCE &&
+                Math.abs(controllerY.getPositionError()) <= AUTO_PILOT_DRIVE_TOLERANCE &&
+                Math.abs(controllerRot.getPositionError()) <= AUTO_PILOT_ROTATION_TOLERANCE;
     }
 }

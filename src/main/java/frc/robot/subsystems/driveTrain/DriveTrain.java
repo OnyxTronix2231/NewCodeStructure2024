@@ -25,13 +25,14 @@ public class DriveTrain extends SubsystemBase {
             module.resetToAbsolute();
         }
     }
+
     public SwerveModulePosition[] getSwerveModulesPosition() {
         int length = components.getSwerveModules().length;
         SwerveModulePosition[] swerveModulePositions = new SwerveModulePosition[length];
-        for (int i = 0; i <length ; i++) {
+        for (int i = 0; i < length; i++) {
             swerveModulePositions[i] = components.getSwerveModules()[i].getPosition();
         }
-        return  swerveModulePositions;
+        return swerveModulePositions;
     }
 
     public ChassisSpeeds getSpeedsRTR(double xSpeed, double ySpeed, double rotSpeed) {
@@ -78,8 +79,7 @@ public class DriveTrain extends SubsystemBase {
                     rawYSpeed,
                     rawRotationSpeed
             );
-        }
-        else {
+        } else {
             speeds = getSpeedsRTR(
                     rawXSpeed,
                     rawYSpeed,
