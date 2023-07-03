@@ -60,6 +60,7 @@ public class SwerveModule {
                 DRIVE_MOTOR_PID,
                 PIDControlMode.Velocity
         );
+
         this.angleOffset = angleOffset;
     }
 
@@ -75,6 +76,10 @@ public class SwerveModule {
         turningController.enable();
 
         double angleError = Math.toRadians(encToDegrees(turningController.getCurrentError()));
+        /***
+         * we multiply in the cos of angleError for the simple reason we if we want to for example drive straight then right,
+         * we get a more curved angle then we desire, so we update velocity based on angle error.
+         */
         driveController.setSetpoint(mpsToEpd(targetModuleState.speedMetersPerSecond * Math.cos(angleError)));
         driveController.enable();
     }
