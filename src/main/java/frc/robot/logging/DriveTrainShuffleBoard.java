@@ -17,6 +17,5 @@ public class DriveTrainShuffleBoard {
 
         SwerveTab.addString("Pose",()-> PoseEstimator.getInstance().getPose2d().toString());
         SwerveTab.addNumber("CurrentModuleAngle", () -> swerveModules[0].getCurrentAbsoluteDeg());
-        SwerveTab.addNumber("cancoderAng", () -> swerveModules[0].getAbsEncDeg() - swerveModules[0].getAngleOffset());
     }
 }
