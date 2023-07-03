@@ -27,10 +27,6 @@ public class SwerveModule {
     private final CtreMotionMagicController turningController;
     private final PIDController driveController;
 
-    public double getAngleOffset() {
-        return angleOffset;
-    }
-
     private final double angleOffset;
 
     public SwerveModule(int driverID, int turningId, int encoderID, double angleOffset) {
