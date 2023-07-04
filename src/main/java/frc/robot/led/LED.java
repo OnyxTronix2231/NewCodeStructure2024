@@ -6,10 +6,16 @@ import edu.wpi.first.wpilibj.util.Color;
 
 public class LED {
 
+    private Color currentColor;
+
     private final LEDComponents components;
 
     private LED(LEDComponents components) {
         this.components = components;
+    }
+
+    public Color getCurrentColor() {
+        return currentColor;
     }
 
     private void setOneLed(int ledIndex, Color color) {
@@ -17,8 +23,9 @@ public class LED {
     }
 
     public void setStrip(Color color) {
-        for (int ledIndex = 0; ledIndex < STRIP_LENGTH; ledIndex++)
+        for (int ledIndex = 0; ledIndex < STRIP_LENGTH; ++ledIndex)
             setOneLed(ledIndex, color);
+        this.currentColor = color;
 
         update();
     }
