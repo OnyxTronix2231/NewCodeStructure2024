@@ -39,12 +39,13 @@ public class DriveTrainShuffleBoard {
 //        rotate 90d, (not working)
 
 
-           tab.add("change color Red", new InstantCommand(()-> LED.getInstance().setStrip(Color.kRed)));
+           tab.add("change color Red", new InstantCommand(()-> LED.getInstance().setStrip(new Color(0, 0, 0))));
 //change color to red
            tab.add("change color Rainbow", new InstantCommand(()-> LED.getInstance().setGaming(3)));
            //change to rainbow (not working)
 
-        //tab.addString("get current color", () ->LED.getInstance().getCurrentColor().toString());
-        //get current color
+        tab.addString("get current color", ()-> LED.getInstance().getCurrentColor().toString());
+
+        // Get current color
     }
 }
