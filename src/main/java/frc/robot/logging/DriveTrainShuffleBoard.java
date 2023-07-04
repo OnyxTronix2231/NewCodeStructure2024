@@ -38,16 +38,18 @@ public class DriveTrainShuffleboard {
 
         tab.addNumber("Robot's angle", () -> PoseEstimator.getInstance().getHeading().getDegrees());
 
-//        tab.add("Turning 90 ",new MoveByDistance(new Pose2d(0, 0, Rotation2d.fromDegrees(90))));
+        tab.add("Turning 90 ",new MoveByDistance(new Pose2d(0, 0, Rotation2d.fromDegrees(90))));
 //        rotate 90d, (not working)
 
 
            tab.add("change color Red", new InstantCommand(()-> LED.getInstance().setStrip(Color.kRed)));
+//change color to red
 
 
-
-           //tab.add("change color Rainbow", new InstantCommand(()-> LED.getInstance().setStrip()));
+           tab.add("change color Rainbow", new InstantCommand(()-> LED.getInstance().setGaming(3)));
            //change to rainbow (not working)
 
+        tab.add("get current color", LED.getInstance().getCurrentColor());
+        //get current color
     }
 }
