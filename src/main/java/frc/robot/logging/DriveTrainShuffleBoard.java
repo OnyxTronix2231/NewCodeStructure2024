@@ -29,7 +29,6 @@ public class DriveTrainShuffleboard {
 //        tab.addNumber("FR encoderUnits ", () -> swerveModules[1].getAbsEncDeg());
 //        tab.addNumber("BL encoderUnits ", () -> swerveModules[2].getAbsEncDeg());
 //        tab.addNumber("BR encoderUnits ", () -> swerveModules[3].getAbsEncDeg());
-        //tab.addNumber("encoder units ", () -> swerveModules[0].getAngleOffset());
 
         tab.addNumber("FL CurrentModuleAngle", () -> swerveModules[0].getCurrentAbsoluteDeg());
 //        tab.addNumber("FR CurrentModuleAngle", () -> swerveModules[1].getCurrentAbsoluteDeg());
@@ -49,7 +48,7 @@ public class DriveTrainShuffleboard {
            tab.add("change color Rainbow", new InstantCommand(()-> LED.getInstance().setGaming(3)));
            //change to rainbow (not working)
 
-        tab.add("get current color", LED.getInstance().getCurrentColor());
+        //tab.addString("get current color", () ->LED.getInstance().getCurrentColor().toString());
         //get current color
     }
 }
