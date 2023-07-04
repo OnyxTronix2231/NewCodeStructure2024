@@ -34,6 +34,21 @@ public class LED {
         setStrip(BLACK);
     }
 
+    public void setGaming(int ledJumps) {
+        int hue;
+        int ledOffset = 0;
+        for (int ledIndex = 0; ledIndex < STRIP_LENGTH; ++ledIndex) {
+            hue = (ledOffset + (ledIndex * MAX_HUE / STRIP_LENGTH)) % MAX_HUE;
+
+            components.getBuffer().setHSV(ledIndex, hue, RAINBOW_SATURATION, RAINBOW_VALUE);
+        }
+
+        ledOffset += ledJumps;
+        ledOffset %= MAX_HUE;
+
+        currentColor =  RAINBOW_INDICATOR;
+    }
+
     public void update() {
         components.getStrip().setData(components.getBuffer());
     }
