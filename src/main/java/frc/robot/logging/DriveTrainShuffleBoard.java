@@ -2,7 +2,6 @@ package frc.robot.logging;
 
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Rotation2d;
-import edu.wpi.first.math.geometry.Rotation3d;
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
 import edu.wpi.first.wpilibj.util.Color;
@@ -10,17 +9,16 @@ import edu.wpi.first.wpilibj2.command.InstantCommand;
 import frc.robot.commands.driveTrain.MoveByDistance;
 import frc.robot.subsystems.driveTrain.DriveTrain;
 import frc.robot.subsystems.driveTrain.DriveTrainComponents;
-import frc.robot.subsystems.driveTrain.DriveTrainComponentsImpl;
 import frc.robot.subsystems.driveTrain.features.PoseEstimator;
 import frc.robot.subsystems.driveTrain.features.SwerveModule;
 import frc.robot.led.LED;
 
-public class DriveTrainShuffleboard {
+public class DriveTrainShuffleBoard {
 
     private DriveTrain driveTrain;
     private ShuffleboardTab tab;
 
-    public DriveTrainShuffleboard(DriveTrainComponents components) {
+    public DriveTrainShuffleBoard(DriveTrainComponents components) {
         driveTrain = DriveTrain.getInstance();
         SwerveModule[] swerveModules = components.getSwerveModules();
 
@@ -43,8 +41,6 @@ public class DriveTrainShuffleboard {
 
            tab.add("change color Red", new InstantCommand(()-> LED.getInstance().setStrip(Color.kRed)));
 //change color to red
-
-
            tab.add("change color Rainbow", new InstantCommand(()-> LED.getInstance().setGaming(3)));
            //change to rainbow (not working)
 

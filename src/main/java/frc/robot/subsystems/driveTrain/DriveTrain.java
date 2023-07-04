@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.subsystems.driveTrain.features.KeepAngleController;
 import frc.robot.subsystems.driveTrain.features.PoseEstimator;
 import frc.robot.subsystems.driveTrain.features.SwerveModule;
-import frc.robot.logging.DriveTrainShuffleboard;
+import frc.robot.logging.DriveTrainShuffleBoard;
 import static frc.robot.subsystems.driveTrain.DriveTrainConstants.*;
 
 public class DriveTrain extends SubsystemBase {
@@ -113,7 +113,7 @@ public class DriveTrain extends SubsystemBase {
         if (instance == null) {
             instance = new DriveTrain(components);
         }
-        new DriveTrainShuffleboard(components);
+        new DriveTrainShuffleBoard(components);
     }
 
     public static DriveTrain getInstance() {
