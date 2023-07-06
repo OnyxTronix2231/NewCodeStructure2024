@@ -23,16 +23,11 @@ public class DriveTrain extends SubsystemBase {
 
     public void arcadeDrive(double speed, double rotation) {
         driveTrainComponents.getDifferentialDrive()
-                .arcadeDrive(speed, rotation, false);
+                .arcadeDrive(speed, rotation);
     }
 
     public void stop() {
-        arcadeDrive(0.0, 0.0);
+        arcadeDrive(0, 0);
     }
 
-
-    // this function is only relevant for shuffleboard example.
-    public double getCurrent() {
-        return driveTrainComponents.getLeftMasterMotor().getStatorCurrent();
-    }
 }
