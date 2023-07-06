@@ -5,6 +5,8 @@ import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.robotControl.BackgroundCommands;
 import frc.robot.robotControl.DeputyOi;
 import frc.robot.robotControl.DriverOi;
+import frc.robot.subsystem.driveTrain.DriveTrain;
+import frc.robot.subsystem.driveTrain.DriveTrainComponentsImpl;
 
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to
@@ -16,6 +18,7 @@ public class Robot extends TimedRobot {
 
     private DriverOi driverOi;
     private DeputyOi deputyOi;
+    private DriveTrain driveTrain;
 
     /**
      * This function is run when the robot is first started up and should be used for any
@@ -28,6 +31,8 @@ public class Robot extends TimedRobot {
 
         driverOi = new DriverOi();
         deputyOi = new DeputyOi();
+        driveTrain = DriveTrain.getInstance();
+        driveTrain.init(new DriveTrainComponentsImpl());
     }
 
     /**
