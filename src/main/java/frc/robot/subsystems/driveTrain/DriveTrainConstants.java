@@ -3,10 +3,9 @@ package frc.robot.subsystems.driveTrain;
 public class DriveTrainConstants {
 
     public static final class ComponentsConstants {
-
-        static final int RIGHT_MASTER_MOTOR_PORT = 1;
-        static final int RIGHT_SLAVE_MOTOR_PORT = 2;
-        static final int LEFT_MASTER_MOTOR_PORT = 3;
-        static final int LEFT_SLAVE_MOTOR_PORT = 4;
+        public static int RIGHT_PORT = 1;
+        public static int LEFT_PORT =2;
+        public static int LEFT_SALVE_PORT =4;
+        public static int RIGHT_SLAVE_PORT =2;
     }
 }
