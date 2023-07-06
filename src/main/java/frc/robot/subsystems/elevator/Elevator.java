@@ -17,20 +17,20 @@ public class Elevator {
         instance = new Elevator(components);
     }
 
-    public void set(double speed){
+    public void set(double speed) {
         components.getLeftMasterMotor().set(speed);
         components.getRightMasterMotor().set(speed);
     }
 
-    public void stop(){
+    public void stop() {
         this.set(0);
     }
 
-    public double getFusedHeading(){
+    public double getFusedHeading() {
         return components.getGyro().getPitch();
     }
 
-    public void shake(double degree){
+    public void shake(double degree) {
         if (degree > 45)
             this.set(-1);
         if (degree < 30)

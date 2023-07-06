@@ -46,15 +46,6 @@ public class ElevatorComponentsImpl implements ElevatorComponents {
         rightSecondSlaveMotor.setInverted(true);
 
         gyro = new PigeonIMU(LEFT_MASTER_MOTOR_PORT);
-
-    }
-
-    public TalonFXConfiguration getFalconConfiguration() {
-        TalonFXConfiguration nig = new TalonFXConfiguration();
-        nig.peakOutputForward = PEAK_OUTPUT_FORWARD;
-        nig.peakOutputReverse = PEAK_OUTPUT_REVERSE;
-        nig.openloopRamp = OPEN_LOOP_RAMP;
-        return nig;
     }
 
     @Override
@@ -69,6 +60,14 @@ public class ElevatorComponentsImpl implements ElevatorComponents {
 
     @Override
     public BasePigeon getGyro() {
-        return this.gyro;
+        return gyro;
+    }
+
+    private TalonFXConfiguration getFalconConfiguration() {
+        TalonFXConfiguration config = new TalonFXConfiguration();
+        config.peakOutputForward = PEAK_OUTPUT_FORWARD;
+        config.peakOutputReverse = PEAK_OUTPUT_REVERSE;
+        config.openloopRamp = OPEN_LOOP_RAMP;
+        return config;
     }
 }
