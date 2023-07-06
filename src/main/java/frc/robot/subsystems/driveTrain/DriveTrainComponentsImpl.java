@@ -34,15 +34,15 @@ public class DriveTrainComponentsImpl implements DriveTrainComponents {
 
     @Override
     public MotorController getLeftMotor() {
-        return null;
-    }
-
-    public DifferentialDrive getDifferentialDrive() {
-        return differentialDrive;
+        return leftMotor;
     }
 
     @Override
     public WPI_TalonFX getRightMotor() {
         return rightMotor;
+    }
+
+    public DifferentialDrive getDifferentialDrive() {
+        return differentialDrive;
     }
 }
