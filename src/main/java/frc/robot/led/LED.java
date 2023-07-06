@@ -20,8 +20,12 @@ public class LED extends SubsystemBase {
         this.components = components;
     }
 
-    public Color getCurrentColor() {
-        return currentColor;
+    public String getCurrentColor() {
+        if (currentColor == null)
+            return "no color";
+        return "red: " + currentColor.red +
+                " green: " + currentColor.green +
+                " blue" + currentColor.blue;
     }
 
     private void setOneLed(int ledIndex, Color color) {
