@@ -8,8 +8,9 @@ import static frc.robot.led.LEDConstants.RAINBOW_VALUE;
 import static frc.robot.led.LEDConstants.STRIP_LENGTH;
 
 import edu.wpi.first.wpilibj.util.Color;
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
-public class LED {
+public class LED extends SubsystemBase {
 
     private Color currentColor;
 
