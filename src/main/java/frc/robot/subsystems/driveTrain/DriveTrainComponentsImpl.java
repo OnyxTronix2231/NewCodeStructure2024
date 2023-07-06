@@ -46,4 +46,3 @@ public class DriveTrainComponentsImpl implements DriveTrainComponents {
         return rightMotor;
     }
 }
-    

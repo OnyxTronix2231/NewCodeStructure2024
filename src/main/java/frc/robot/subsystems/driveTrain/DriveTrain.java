@@ -19,11 +19,11 @@ public class DriveTrain extends SubsystemBase {
         instance = new DriveTrain(components);
     }
 
-    public void arcadeDrive(double speed ,double rotation){
+    public void arcadeDrive(double speed, double rotation) {
         components.getDifferentialDrive().arcadeDrive(speed, rotation);
     }
 
-    public void stop(){
-        arcadeDrive(0,0);
+    public void stop() {
+        arcadeDrive(0, 0);
     }
 }
