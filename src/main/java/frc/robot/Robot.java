@@ -4,6 +4,8 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.robotControl.DeputyOi;
 import frc.robot.robotControl.DriverOi;
+import frc.robot.subsystems.Elevator.Elevator;
+import frc.robot.subsystems.Elevator.ElevatorComponnentsImpl;
 import frc.robot.subsystems.driveTrain.DriveTrainComponentsImpl;
 import frc.robot.subsystems.driveTrain.DriveTrain;
 
@@ -24,6 +26,7 @@ public class Robot extends TimedRobot {
      */
     @Override
     public void robotInit() {
+        Elevator.initInstance(new ElevatorComponnentsImpl());
         DriveTrain.initDriveTrain(new DriveTrainComponentsImpl());
         driverOi = new DriverOi();
         deputyOi = new DeputyOi();
