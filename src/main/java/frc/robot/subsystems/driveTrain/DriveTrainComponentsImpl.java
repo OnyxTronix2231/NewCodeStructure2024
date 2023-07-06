@@ -7,10 +7,10 @@ import edu.wpi.first.wpilibj.motorcontrol.MotorController;
 import static frc.robot.subsystems.driveTrain.DriveTrainConstants.ComponentsConstants.*;
 
 public class DriveTrainComponentsImpl implements DriveTrainComponnents {
-    private final WPI_TalonFX slaveLeft;
-    private final WPI_TalonFX slaveRight;
     private final WPI_TalonFX masterLeft;
     private final WPI_TalonFX masterRight;
+    private final WPI_TalonFX slaveLeft;
+    private final WPI_TalonFX slaveRight;
     private final DifferentialDrive differentialDrive;
 
     public DriveTrainComponentsImpl() {
@@ -37,7 +37,6 @@ public class DriveTrainComponentsImpl implements DriveTrainComponnents {
         return masterLeft;
     }
 
-
     @Override
     public MotorController getMasterRight() {
         return masterRight;
@@ -47,5 +46,4 @@ public class DriveTrainComponentsImpl implements DriveTrainComponnents {
     public DifferentialDrive getDifferentialDrive() {
         return differentialDrive;
     }
-
 }

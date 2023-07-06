@@ -21,7 +21,7 @@ public class DriveTrain extends SubsystemBase {
         return instance;
     }
 
-    public DriveTrain getInstance() {
+    public static DriveTrain getInstance() {
         return instance;
     }
 
@@ -29,5 +29,3 @@ public class DriveTrain extends SubsystemBase {
         driveTrainComponnents.getDifferentialDrive().arcadeDrive(0, 0);
     }
 }
-
-
