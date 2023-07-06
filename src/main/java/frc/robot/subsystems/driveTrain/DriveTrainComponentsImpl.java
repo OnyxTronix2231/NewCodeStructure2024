@@ -14,17 +14,17 @@ public class DriveTrainComponentsImpl implements DriveTrainComponents {
     private DifferentialDrive differentialDrive;
 
     public DriveTrainComponentsImpl() {
-        rightMotor = new WPI_TalonFX(RIGHT_PORT);
+        rightMotor = new WPI_TalonFX(RIGHT_Motor_PORT);
         rightMotor.configFactoryDefault();
 
-        rightSlave = new WPI_TalonFX(RIGHT_SLAVE_PORT);
+        rightSlave = new WPI_TalonFX(RIGHT_SLAVE_Motor_PORT);
         rightSlave.configFactoryDefault();
         rightSlave.follow(rightMotor);
 
-        leftMotor = new WPI_TalonFX(LEFT_PORT);
+        leftMotor = new WPI_TalonFX(LEFT_Motor_PORT);
         leftMotor.configFactoryDefault();
 
-        leftSlave = new WPI_TalonFX(LEFT_SALVE_PORT);
+        leftSlave = new WPI_TalonFX(LEFT_SALVE_Motor_PORT);
         leftSlave.configFactoryDefault();
         leftSlave.follow(leftMotor);
 
