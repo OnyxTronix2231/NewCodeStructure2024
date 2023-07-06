@@ -5,6 +5,8 @@ import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.robotControl.BackgroundCommands;
 import frc.robot.robotControl.DeputyOi;
 import frc.robot.robotControl.DriverOi;
+import frc.robot.subsystems.driveTrain.DriveTrain;
+import frc.robot.subsystems.driveTrain.DriveTrainComponentsImpl;
 
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to
@@ -23,6 +25,10 @@ public class Robot extends TimedRobot {
      */
     @Override
     public void robotInit() {
+
+        DriveTrain.initDriveTrain(new DriveTrainComponentsImpl());
+        
+
 
         new BackgroundCommands();
 

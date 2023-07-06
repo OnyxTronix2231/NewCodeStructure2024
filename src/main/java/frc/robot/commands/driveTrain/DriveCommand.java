@@ -16,7 +16,6 @@ public class DriveCommand extends CommandBase {
         this.rotation = rotation;
 
         drivetrain = DriveTrain.getInstance();
-        addRequirements(drivetrain);
     }
 
     @Override
