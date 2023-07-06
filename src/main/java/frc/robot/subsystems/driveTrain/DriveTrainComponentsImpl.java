@@ -1,6 +1,5 @@
 package frc.robot.subsystems.driveTrain;
 
-import edu.wpi.first.math.kinematics.SwerveModuleState;
 import frc.robot.subsystems.driveTrain.features.SwerveModule;
 
 import static frc.robot.subsystems.driveTrain.DriveTrainConstants.*;
@@ -11,7 +10,7 @@ public class DriveTrainComponentsImpl implements DriveTrainComponents {
     public DriveTrainComponentsImpl() {
         SwerveModule module_FL = new SwerveModule(
                 FRONT_LEFT_DRIVE_MOTOR_ID,
-                FRONT_lEFT_TURNING_MOTOR_ID,
+                FRONT_LEFT_TURNING_MOTOR_ID,
                 FRONT_LEFT_TURNING_ENCODER_ID,
                 ANGLE_OFFSET_FL
         );

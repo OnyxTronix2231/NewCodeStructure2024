@@ -25,7 +25,7 @@ public class DriveTrainConstants {
     public static final int BOTTOM_LEFT_DRIVE_MOTOR_ID = 11;
 
     public static final int FRONT_RIGHT_TURNING_MOTOR_ID = 3;
-    public static final int FRONT_lEFT_TURNING_MOTOR_ID = 6;
+    public static final int FRONT_LEFT_TURNING_MOTOR_ID = 6;
     public static final int BOTTOM_RIGHT_TURNING_MOTOR_ID = 9;
     public static final int BOTTOM_LEFT_TURNING_MOTOR_ID = 12;
 
