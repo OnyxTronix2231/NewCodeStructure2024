@@ -32,7 +32,7 @@ public class LED {
             setOneLed(ledIndex, color);
 
         this.currentColor = color;
-        update();
+        Update();
     }
 
     public void setStripOff() {
@@ -52,9 +52,11 @@ public class LED {
         ledOffset %= MAX_HUE;
 
         currentColor = RAINBOW_INDICATOR;
+
+        Update();
     }
 
-    public void update() {
+    public void Update() {
         components.getStrip().setData(components.getBuffer());
     }
 
