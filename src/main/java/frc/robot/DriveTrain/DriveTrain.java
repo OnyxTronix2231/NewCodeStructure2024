@@ -2,13 +2,12 @@ package frc.robot.DriveTrain;
 
 public class DriveTrain {
 
-    private DriveTrainComponents components;
+    private final DriveTrainComponents components;
 
     private static DriveTrain instance;
 
     public static void initDriveTrain(DriveTrainComponents components){
         instance = new DriveTrain(components);
-
     }
 
     public DriveTrain(DriveTrainComponents components) {
