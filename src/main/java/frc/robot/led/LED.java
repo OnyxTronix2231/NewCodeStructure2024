@@ -7,13 +7,13 @@ import static frc.robot.led.LEDConstants.RAINBOW_SATURATION;
 import static frc.robot.led.LEDConstants.RAINBOW_VALUE;
 import static frc.robot.led.LEDConstants.STRIP_LENGTH;
 
-import edu.wpi.first.wpilibj.util.Color;
-import edu.wpi.first.wpilibj2.command.PrintCommand;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class LED extends SubsystemBase {
 
-    private Color currentColor;
+    private int red;
+    private int green;
+    private int blue;
 
     private final LEDComponents components;
 
@@ -22,27 +22,28 @@ public class LED extends SubsystemBase {
     }
 
     public String getCurrentColor() {
-        if (currentColor == null)
-            return "no color";
-        return "red: " + currentColor.red +
-                " green: " + currentColor.green +
-                " blue" + currentColor.blue;
+        return "Red: " + red +
+                " Green: " + green +
+                " Blue: " + blue;
     }
 
-    private void setOneLed(int ledIndex, Color color) {
-        components.getBuffer().setLED(ledIndex, color);
+    private void setOneLed(int ledIndex, int red, int green, int blue) {
+        components.getBuffer().setRGB(ledIndex, red, green, blue);
     }
 
-    public void setStrip(Color color) {
+    public void setStrip(int red, int green, int blue) {
         for (int ledIndex = 0; ledIndex < STRIP_LENGTH; ++ledIndex)
-            setOneLed(ledIndex, color);
+            setOneLed(ledIndex, red, green, blue);
 
-        this.currentColor = color;
+        this.red = red;
+        this.blue = blue;
+        this.green = green;
+
         Update();
     }
 
     public void setStripOff() {
-        setStrip(BLACK);
+        setStrip(BLACK.getRed(), BLACK.getGreen(), BLACK.getBlue());
     }
 
     public void setGaming(int ledJumps) {
@@ -57,7 +58,9 @@ public class LED extends SubsystemBase {
         ledOffset += ledJumps;
         ledOffset %= MAX_HUE;
 
-        currentColor = RAINBOW_INDICATOR;
+        this.red = RAINBOW_INDICATOR.getRed();
+        this.green = RAINBOW_INDICATOR.getGreen();
+        this.blue = RAINBOW_INDICATOR.getBlue();
 
         Update();
     }
