@@ -42,6 +42,6 @@ public class DriverOi {
                 () -> true
         ));
         resetPose.onTrue(new ResetPose());
-        changeColor.onTrue(new InstantCommand(()-> LED.getInstance().setStrip(new Color(87, 10, 123))));
+        changeColor.onTrue(new InstantCommand(()-> LED.getInstance().setStrip(87, 10, 123)));
     }
 }
