@@ -5,19 +5,14 @@ import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
 import static frc.robot.subsystems.driveTrain.DriveTrainConstants.ComponentsConstants.*;
 
-public class DriveTrainComponentsImpl implements DriveTrainComponents{
+public class DriveTrainComponentsImpl implements DriveTrainComponents {
 
     private final WPI_TalonFX LeftMasterMotor;
     private final WPI_TalonFX RightMasterMotor;
-
     private final WPI_TalonFX LeftSlaveMotor;
-
     private final WPI_TalonFX RightSlaveMotor;
 
-
-
     private final DifferentialDrive differentialDrive;
-
 
     public DriveTrainComponentsImpl() {
         RightMasterMotor = new WPI_TalonFX(RIGHT_MASTER_MOTOR_PORT);
@@ -32,7 +27,7 @@ public class DriveTrainComponentsImpl implements DriveTrainComponents{
         LeftSlaveMotor.follow(LeftMasterMotor);
         RightSlaveMotor.follow(RightMasterMotor);
 
-        differentialDrive = new DifferentialDrive(LeftMasterMotor,RightMasterMotor);
+        differentialDrive = new DifferentialDrive(LeftMasterMotor, RightMasterMotor);
         differentialDrive.setSafetyEnabled(true);
     }
 

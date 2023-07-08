@@ -1,6 +1,5 @@
 package frc.robot.subsystems.driveTrain;
 
-import edu.wpi.first.wpilibj2.command.Subsystem;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class DriveTrain extends SubsystemBase {
@@ -28,7 +27,6 @@ public class DriveTrain extends SubsystemBase {
     public static DriveTrain getInstance() {
         return instance;
     }
-
 
 }
 
