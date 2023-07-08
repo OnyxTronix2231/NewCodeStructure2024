@@ -15,7 +15,10 @@ public class LEDComponentsImpl implements LEDComponents {
         Strip = new AddressableLED(PORT);
         Buffer = new AddressableLEDBuffer(STRIP_LENGTH);
 
-        Strip.setLength(Buffer.getLength());
+
+        Strip.setLength(STRIP_LENGTH);
+
+        Strip.setData(Buffer);
         Strip.start();
     }
 

@@ -8,8 +8,9 @@ import static frc.robot.led.LEDConstants.RAINBOW_VALUE;
 import static frc.robot.led.LEDConstants.STRIP_LENGTH;
 
 import edu.wpi.first.wpilibj.util.Color;
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
-public class LED {
+public class LED extends SubsystemBase {
 
     private Color currentColor;
 
@@ -19,8 +20,12 @@ public class LED {
         this.components = components;
     }
 
-    public Color getCurrentColor() {
-        return currentColor;
+    public String getCurrentColor() {
+        if (currentColor == null)
+            return "no color";
+        return "red: " + currentColor.red +
+                " green: " + currentColor.green +
+                " blue" + currentColor.blue;
     }
 
     private void setOneLed(int ledIndex, Color color) {
@@ -32,7 +37,7 @@ public class LED {
             setOneLed(ledIndex, color);
 
         this.currentColor = color;
-        update();
+        Update();
     }
 
     public void setStripOff() {
@@ -53,9 +58,11 @@ public class LED {
 
         update();
         currentColor = RAINBOW_INDICATOR;
+
+        Update();
     }
 
-    public void update() {
+    public void Update() {
         components.getStrip().setData(components.getBuffer());
     }
 
