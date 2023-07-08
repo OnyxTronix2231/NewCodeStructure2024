@@ -6,6 +6,7 @@ import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
 import edu.wpi.first.wpilibj.util.Color;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
+import edu.wpi.first.wpilibj2.command.PrintCommand;
 import frc.robot.commands.driveTrain.MoveByDistance;
 import frc.robot.subsystems.driveTrain.DriveTrain;
 import frc.robot.subsystems.driveTrain.DriveTrainComponents;
@@ -39,12 +40,14 @@ public class DriveTrainShuffleBoard {
 //        rotate 90d, (not working)
 
 
-           tab.add("change color Red", new InstantCommand(()-> LED.getInstance().setStrip(new Color(0, 0, 0))));
+           tab.add("change color Red", new InstantCommand(()-> LED.getInstance().setStrip(new Color(255, 0, 0))));
 //change color to red
            tab.add("change color Rainbow", new InstantCommand(()-> LED.getInstance().setGaming(3)));
            //change to rainbow (not working)
 
         tab.addString("get current color", ()-> LED.getInstance().getCurrentColor());
         // Get current color
+
+        tab.add("change color null", new InstantCommand(()-> LED.getInstance().setStrip(new Color(0, 0, 0))));
     }
 }
