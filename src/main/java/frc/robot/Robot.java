@@ -2,9 +2,16 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
-import frc.robot.robotControl.BackgroundCommands;
+import frc.robot.led.LED;
+import frc.robot.led.LEDComponentsImpl;
 import frc.robot.robotControl.DeputyOi;
 import frc.robot.robotControl.DriverOi;
+import frc.robot.subsystems.driveTrain.DriveTrain;
+import frc.robot.subsystems.driveTrain.DriveTrainComponents;
+import frc.robot.subsystems.driveTrain.DriveTrainComponentsImpl;
+import frc.robot.subsystems.driveTrain.features.KeepAngleController;
+import frc.robot.subsystems.driveTrain.features.PoseEstimator;
+import frc.robot.subsystems.driveTrain.features.SwerveModule;
 
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to
@@ -13,7 +20,6 @@ import frc.robot.robotControl.DriverOi;
  * project.
  */
 public class Robot extends TimedRobot {
-
     private DriverOi driverOi;
     private DeputyOi deputyOi;
 
@@ -23,9 +29,10 @@ public class Robot extends TimedRobot {
      */
     @Override
     public void robotInit() {
-
-        new BackgroundCommands();
-
+        DriveTrain.init(new DriveTrainComponentsImpl());
+        LED.init(new LEDComponentsImpl());
+        PoseEstimator.init();
+        KeepAngleController.init();
         driverOi = new DriverOi();
         deputyOi = new DeputyOi();
     }
