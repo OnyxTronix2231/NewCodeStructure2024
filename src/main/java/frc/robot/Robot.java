@@ -5,6 +5,8 @@ import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.robotControl.BackgroundCommands;
 import frc.robot.robotControl.DeputyOi;
 import frc.robot.robotControl.DriverOi;
+import frc.robot.subsystems.Elevator.Elevator;
+import frc.robot.subsystems.Elevator.ElevatorComponentsImpl;
 import frc.robot.subsystems.driveTrain.DriveTrain;
 import frc.robot.subsystems.driveTrain.DriveTrainComponentsImpl;
 
@@ -31,6 +33,7 @@ public class Robot extends TimedRobot {
         driverOi = new DriverOi();
         deputyOi = new DeputyOi();
         DriveTrain.initDriveTrain(new DriveTrainComponentsImpl());
+        Elevator.initElevator(new ElevatorComponentsImpl());
 
     }
 
