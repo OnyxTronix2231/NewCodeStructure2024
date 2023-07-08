@@ -44,8 +44,7 @@ public class DriveTrainShuffleBoard {
            tab.add("change color Rainbow", new InstantCommand(()-> LED.getInstance().setGaming(3)));
            //change to rainbow (not working)
 
-        tab.addString("get current color", ()-> LED.getInstance().getCurrentColor().toString());
-
+        tab.addString("get current color", ()-> LED.getInstance().getCurrentColor());
         // Get current color
     }
 }

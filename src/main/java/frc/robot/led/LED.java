@@ -56,7 +56,6 @@ public class LED extends SubsystemBase {
         ledOffset += ledJumps;
         ledOffset %= MAX_HUE;
 
-        update();
         currentColor = RAINBOW_INDICATOR;
 
         Update();
