@@ -28,6 +28,7 @@ public class Robot extends TimedRobot {
 
         driverOi = new DriverOi();
         deputyOi = new DeputyOi();
+        
     }
 
     /**
