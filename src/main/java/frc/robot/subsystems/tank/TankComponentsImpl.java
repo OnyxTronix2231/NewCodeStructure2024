@@ -2,6 +2,7 @@ package frc.robot.subsystems.tank;
 
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
 public class TankComponentsImpl implements TankComponents {
     private final WPI_TalonSRX leftMaster;
@@ -11,6 +12,8 @@ public class TankComponentsImpl implements TankComponents {
     private final VictorSPX rightSlave1;
     private final VictorSPX rightSlave2;
 
+
+
     public TankComponentsImpl() {
         leftMaster = new WPI_TalonSRX(TankConstants.LEFT_MASTER_MOTOR);
         leftSlave1 = new VictorSPX(TankConstants.LEFT_SLAVE1_MOTOR);
@@ -19,6 +22,7 @@ public class TankComponentsImpl implements TankComponents {
         rightSlave1 = new VictorSPX(TankConstants.RIGHT_SLAVE1_MOTOR);
         rightSlave2 = new VictorSPX(TankConstants.RIGHT_SLAVE2_MOTOR);
 
+
         // Set inversion for the motors on one side
         leftMaster.setInverted(false);
         leftSlave1.setInverted(false);
@@ -26,6 +30,7 @@ public class TankComponentsImpl implements TankComponents {
         rightMaster.setInverted(false);
         rightSlave1.setInverted(false);
         rightSlave2.setInverted(false);
+
 
         // Set the slave motors to follow the master motors
         leftSlave1.follow(leftMaster);
@@ -63,6 +68,9 @@ public class TankComponentsImpl implements TankComponents {
     public VictorSPX getRightMotor3() {
         return rightSlave2;
     }
+
+
+
 
     public void setLeftSpeed(double speed) {
         leftMaster.set(speed);
