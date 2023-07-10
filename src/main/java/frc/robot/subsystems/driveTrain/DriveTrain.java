@@ -14,6 +14,10 @@ public class DriveTrain extends SubsystemBase {
         driveTrainComponnents.getDifferentialDrive().arcadeDrive(speed, rotation);
     }
 
+    public void stop() {
+        driveTrainComponnents.getDifferentialDrive().arcadeDrive(0, 0);
+    }
+
     public static DriveTrain initDriveTrain(DriveTrainComponnents driveTrainComponnents) {
         if (instance == null) {
             instance = new DriveTrain(driveTrainComponnents);
@@ -23,9 +27,5 @@ public class DriveTrain extends SubsystemBase {
 
     public static DriveTrain getInstance() {
         return instance;
-    }
-
-    public void stop() {
-        driveTrainComponnents.getDifferentialDrive().arcadeDrive(0, 0);
     }
 }

@@ -1,40 +1,43 @@
 package frc.robot.subsystems.driveTrain;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.motorcontrol.MotorController;
 
 import static frc.robot.subsystems.driveTrain.DriveTrainConstants.ComponentsConstants.*;
 
 public class DriveTrainComponentsImpl implements DriveTrainComponnents {
-    private final WPI_TalonFX masterLeft;
-    private final WPI_TalonFX masterRight;
-    private final WPI_TalonFX slaveLeft;
-    private final WPI_TalonFX slaveRight;
-    private final WPI_TalonFX secondSlaveLeft;
-    private final WPI_TalonFX secondSlaveRight;
+    private final WPI_TalonSRX masterLeft;
+    private final WPI_TalonSRX masterRight;
+    private final WPI_VictorSPX slaveLeft;
+    private final WPI_VictorSPX slaveRight;
+    private final WPI_VictorSPX secondSlaveLeft;
+    private final WPI_VictorSPX secondSlaveRight;
     private final DifferentialDrive differentialDrive;
 
     public DriveTrainComponentsImpl() {
-        this.masterLeft = new WPI_TalonFX(MASTER_LEFT_ID);
+        this.masterLeft = new WPI_TalonSRX(MASTER_LEFT_ID);
         masterLeft.configFactoryDefault();
 
-        this.masterRight = new WPI_TalonFX(MASTER_RIGHT_ID);
+        this.masterRight = new WPI_TalonSRX(MASTER_RIGHT_ID);
         masterRight.configFactoryDefault();
+        masterRight.setInverted(true);
 
-        this.slaveLeft = new WPI_TalonFX(SLAVE_LEFT_ID);
+        this.slaveLeft = new WPI_VictorSPX(SLAVE_LEFT_ID);
         slaveLeft.configFactoryDefault();
         slaveLeft.follow(masterLeft);
 
-        this.slaveRight = new WPI_TalonFX(SLAVE_RIGHT_ID);
+        this.slaveRight = new WPI_VictorSPX(SLAVE_RIGHT_ID);
         slaveRight.configFactoryDefault();
         slaveRight.follow(masterRight);
 
-        this.secondSlaveLeft = new WPI_TalonFX(5);
+        this.secondSlaveLeft = new WPI_VictorSPX(5);
         secondSlaveLeft.configFactoryDefault();
         secondSlaveLeft.follow(masterLeft);
 
-        this.secondSlaveRight = new WPI_TalonFX(6);
+        this.secondSlaveRight = new WPI_VictorSPX(6);
         secondSlaveRight.configFactoryDefault();
         secondSlaveRight.follow(masterRight);
 

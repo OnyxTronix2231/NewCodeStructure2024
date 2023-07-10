@@ -26,7 +26,6 @@ public class Robot extends TimedRobot {
      */
     @Override
     public void robotInit() {
-        Elevator.initInstance(new ElevatorComponnentsImpl());
         DriveTrain.initDriveTrain(new DriveTrainComponentsImpl());
         driverOi = new DriverOi();
         deputyOi = new DeputyOi();

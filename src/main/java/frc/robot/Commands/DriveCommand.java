@@ -12,14 +12,19 @@ public class DriveCommand extends CommandBase {
 
     public DriveCommand(DoubleSupplier speedSupplier, DoubleSupplier rotSupplier) {
         driveTrain = DriveTrain.getInstance();
+
         this.speedSupplier = speedSupplier;
         this.rotSupplier = rotSupplier;
+
         addRequirements(driveTrain);
     }
 
     @Override
     public void execute() {
-        driveTrain.arcadeDrive(speedSupplier.getAsDouble(),rotSupplier.getAsDouble());
+        driveTrain.arcadeDrive(
+                speedSupplier.getAsDouble(),
+                rotSupplier.getAsDouble()
+        );
     }
 
     @Override
