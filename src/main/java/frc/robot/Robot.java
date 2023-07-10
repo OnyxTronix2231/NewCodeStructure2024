@@ -1,10 +1,14 @@
 package frc.robot;
 
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.robotControl.BackgroundCommands;
 import frc.robot.robotControl.DeputyOi;
 import frc.robot.robotControl.DriverOi;
+import frc.robot.Tank.*;
+
+
 
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to
@@ -17,6 +21,9 @@ public class Robot extends TimedRobot {
     private DriverOi driverOi;
     private DeputyOi deputyOi;
 
+    private Joystick controller;
+    private Tank tank;
+
     /**
      * This function is run when the robot is first started up and should be used for any
      * initialization code.
@@ -28,7 +35,12 @@ public class Robot extends TimedRobot {
 
         driverOi = new DriverOi();
         deputyOi = new DeputyOi();
-        
+
+        controller = new Joystick(0);
+        TankComponents tankComponents = new TankComponentsImpl();
+
+        tank = new Tank(controller, tankComponents);
+
     }
 
     /**
@@ -81,6 +93,7 @@ public class Robot extends TimedRobot {
      */
     @Override
     public void teleopPeriodic() {
+        tank.teleopPeriodic();
     }
 
     @Override
