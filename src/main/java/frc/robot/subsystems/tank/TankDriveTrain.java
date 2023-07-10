@@ -1,12 +1,12 @@
-package frc.robot.Tank;
+package frc.robot.subsystems.tank;
 
 import edu.wpi.first.wpilibj.Joystick;
 
-public class Tank {
+public class TankDriveTrain {
     private final Joystick controller;
     private final TankComponents tankComponents;
 
-    public Tank(Joystick controller, TankComponents tankComponents) {
+    public TankDriveTrain(Joystick controller, TankComponents tankComponents) {
         this.controller = controller;
         this.tankComponents = tankComponents;
     }
@@ -18,7 +18,7 @@ public class Tank {
         double leftSpeed = forward + turn;
         double rightSpeed = forward - turn;
 
-        tankComponents.setLeftMotorsSpeed(leftSpeed);
-        tankComponents.setRightMotorsSpeed(rightSpeed);
+        tankComponents.setLeftSpeed(leftSpeed);
+        tankComponents.setRightSpeed(rightSpeed);
     }
 }

@@ -6,7 +6,7 @@ import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.robotControl.BackgroundCommands;
 import frc.robot.robotControl.DeputyOi;
 import frc.robot.robotControl.DriverOi;
-import frc.robot.Tank.*;
+import frc.robot.subsystems.tank.*;
 
 
 
@@ -22,7 +22,7 @@ public class Robot extends TimedRobot {
     private DeputyOi deputyOi;
 
     private Joystick controller;
-    private Tank tank;
+    private TankDriveTrain tank;
 
     /**
      * This function is run when the robot is first started up and should be used for any
@@ -39,7 +39,7 @@ public class Robot extends TimedRobot {
         controller = new Joystick(0);
         TankComponents tankComponents = new TankComponentsImpl();
 
-        tank = new Tank(controller, tankComponents);
+        tank = new TankDriveTrain(controller, tankComponents);
 
     }
 
