@@ -11,6 +11,8 @@ public class DriveTrainComponentsImpl implements DriveTrainComponnents {
     private final WPI_TalonFX masterRight;
     private final WPI_TalonFX slaveLeft;
     private final WPI_TalonFX slaveRight;
+    private final WPI_TalonFX secondSlaveLeft;
+    private final WPI_TalonFX secondSlaveRight;
     private final DifferentialDrive differentialDrive;
 
     public DriveTrainComponentsImpl() {
@@ -27,6 +29,14 @@ public class DriveTrainComponentsImpl implements DriveTrainComponnents {
         this.slaveRight = new WPI_TalonFX(SLAVE_RIGHT_ID);
         slaveRight.configFactoryDefault();
         slaveRight.follow(masterRight);
+
+        this.secondSlaveLeft = new WPI_TalonFX(5);
+        secondSlaveLeft.configFactoryDefault();
+        secondSlaveLeft.follow(masterLeft);
+
+        this.secondSlaveRight = new WPI_TalonFX(6);
+        secondSlaveRight.configFactoryDefault();
+        secondSlaveRight.follow(masterRight);
 
         this.differentialDrive = new DifferentialDrive(masterLeft, masterRight);
         differentialDrive.setSafetyEnabled(true);
