@@ -7,6 +7,8 @@ import frc.robot.robotControl.DeputyOi;
 import frc.robot.robotControl.DriverOi;
 import frc.robot.subsystems.Elevator.Elevator;
 import frc.robot.subsystems.Elevator.ElevatorComponentsImpl;
+import frc.robot.subsystems.Telescope.Telescope;
+import frc.robot.subsystems.Telescope.TelescopeComponentsImpl;
 import frc.robot.subsystems.driveTrain.DriveTrain;
 import frc.robot.subsystems.driveTrain.DriveTrainComponentsImpl;
 
@@ -34,6 +36,7 @@ public class Robot extends TimedRobot {
         deputyOi = new DeputyOi();
         DriveTrain.initDriveTrain(new DriveTrainComponentsImpl());
         Elevator.initElevator(new ElevatorComponentsImpl());
+        Telescope.initTelescope(new TelescopeComponentsImpl());
 
     }
 
