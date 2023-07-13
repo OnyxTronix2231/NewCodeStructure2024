@@ -7,7 +7,7 @@ import com.ctre.phoenix.sensors.PigeonIMU;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.motorcontrol.MotorController;
 
-import static frc.robot.subsystems.Elevator.ElevatorConstats.*;
+import static frc.robot.data.ElevatorConstant.*;
 
 
 public class ElevatorComponentsImpl implements ElevatorComponents{

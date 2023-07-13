@@ -2,7 +2,7 @@ package frc.robot.subsystems.Elevator;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
-import static frc.robot.subsystems.Elevator.ElevatorConstats.MAX_SPEED;
+import static frc.robot.data.ElevatorConstant.*;
 
 public class Elevator extends SubsystemBase {
     private ElevatorComponents components;

@@ -3,7 +3,7 @@ package frc.robot.subsystems.driveTrain;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
-import static frc.robot.subsystems.driveTrain.DriveTrainConstants.ComponentsConstants.*;
+import static frc.robot.data.DriveTrainConstant.ComponentsConstants.*;
 
 public class DriveTrainComponentsImpl implements DriveTrainComponents{
 
