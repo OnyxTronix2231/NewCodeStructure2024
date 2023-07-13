@@ -2,6 +2,7 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
+import frc.robot.commands.Test;
 import frc.robot.led.LED;
 import frc.robot.led.LEDComponentsImpl;
 import frc.robot.robotControl.DeputyOi;
@@ -12,6 +13,7 @@ import frc.robot.subsystems.driveTrain.DriveTrainComponentsImpl;
 import frc.robot.subsystems.driveTrain.features.KeepAngleController;
 import frc.robot.subsystems.driveTrain.features.PoseEstimator;
 import frc.robot.subsystems.driveTrain.features.SwerveModule;
+import sensors.Switch.Switch;
 
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to
@@ -22,6 +24,7 @@ import frc.robot.subsystems.driveTrain.features.SwerveModule;
 public class Robot extends TimedRobot {
     private DriverOi driverOi;
     private DeputyOi deputyOi;
+
 
     /**
      * This function is run when the robot is first started up and should be used for any
@@ -80,6 +83,7 @@ public class Robot extends TimedRobot {
 
     @Override
     public void teleopInit() {
+        CommandScheduler.getInstance().schedule(new Test());
     }
 
     /**

@@ -85,7 +85,7 @@ public class SwerveModule {
         turningController.update(degreesToEnc(targetModuleState.angle.getDegrees()));
 
         double angleError = Math.toRadians(encToDegrees(turningController.getCurrentError()));
-        System.out.println(targetModuleState.speedMetersPerSecond * Math.cos(angleError));
+        //System.out.println(targetModuleState.speedMetersPerSecond * Math.cos(angleError));
         driveController.update(mpsToEpd(targetModuleState.speedMetersPerSecond * Math.cos(angleError)));
     }
 
