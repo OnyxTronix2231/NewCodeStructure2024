@@ -2,6 +2,7 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
+import frc.robot.commands.Telescope.MoveBySetPoint;
 import frc.robot.robotControl.BackgroundCommands;
 import frc.robot.robotControl.DeputyOi;
 import frc.robot.robotControl.DriverOi;
@@ -11,6 +12,8 @@ import frc.robot.subsystems.Telescope.Telescope;
 import frc.robot.subsystems.Telescope.TelescopeComponentsImpl;
 import frc.robot.subsystems.driveTrain.DriveTrain;
 import frc.robot.subsystems.driveTrain.DriveTrainComponentsImpl;
+
+import java.util.function.DoubleSupplier;
 
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to

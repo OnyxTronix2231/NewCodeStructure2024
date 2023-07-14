@@ -21,8 +21,8 @@ public class Telescope extends SubsystemBase {
         return instance;
     }
 
-    public void setSpeed(DoubleSupplier speed) {
-        components.getMotor().set(speed.getAsDouble());
+    public void setSpeed(double speed) {
+        components.getMotor().set(speed);
     }
 
     public void moveBySetPoint(double setPoint) {
