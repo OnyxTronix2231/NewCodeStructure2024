@@ -5,23 +5,23 @@ import frc.robot.subsystems.telescope.Telescope;
 
 import java.util.function.DoubleSupplier;
 
-public class MoveBySpeed extends CommandBase {
-    private DoubleSupplier speed;
-    private Telescope telescope;
+public class MoveByLength extends CommandBase {
+    private final Telescope telescope;
+    private DoubleSupplier length;
 
-    public MoveBySpeed(DoubleSupplier speed){
+    public MoveByLength(DoubleSupplier length){
+        this.length = length;
         telescope = Telescope.getInstance();
-        this.speed = speed;
     }
 
     @Override
     public void initialize() {
-        telescope.MoveBySpeed(speed);
+        telescope.MoveByLength(length.getAsDouble());
     }
 
     @Override
     public void execute() {
-        telescope.MoveBySpeed(speed);
+        telescope.updateMoveByLength(length.getAsDouble());
     }
 
     @Override
