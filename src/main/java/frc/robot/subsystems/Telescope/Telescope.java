@@ -21,18 +21,15 @@ public class Telescope extends SubsystemBase {
         return instance;
     }
 
-    public void setSpeed(DoubleSupplier speed){
+    public void setSpeed(DoubleSupplier speed) {
         components.getMotor().set(speed.getAsDouble());
     }
 
-    public void stop(){
-        components.getMotor().set(0);
+    public void moveBySetPoint(double setPoint) {
+        components.getPositionController().setSetpoint(setPoint);
     }
 
-
-
-
-
-
-
+    public boolean isOnSetPoint() {
+        return components.getPositionController().isOnTarget(20);
+    }
 }
