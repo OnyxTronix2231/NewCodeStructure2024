@@ -1,6 +1,8 @@
 package frc.robot.subsystems.telescope;
 
-public class Telescope {
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
+
+public class Telescope extends SubsystemBase {
     private final TelescopeComponnentsImpl componnents;
     private static Telescope instance;
 

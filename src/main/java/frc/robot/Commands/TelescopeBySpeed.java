@@ -12,6 +12,7 @@ public class TelescopeBySpeed extends CommandBase {
     public TelescopeBySpeed(DoubleSupplier speedSupplier) {
         this.telescope = Telescope.getInstance();
         this.speedSupplier = speedSupplier;
+        addRequirements(telescope);
     }
 
     @Override
