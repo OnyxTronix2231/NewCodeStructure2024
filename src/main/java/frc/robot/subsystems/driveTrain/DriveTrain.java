@@ -114,7 +114,7 @@ public class DriveTrain extends SubsystemBase {
         if (instance == null) {
             instance = new DriveTrain(components);
         }
-        new DriveTrainShuffleBoard(instance, instance.components);
+        //new DriveTrainShuffleBoard(instance, instance.components);
     }
 
     public static DriveTrain getInstance() {

@@ -1,5 +1,6 @@
 package frc.robot;
 
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.robotControl.DeputyOi;
@@ -20,6 +21,8 @@ import frc.robot.subsystems.driveTrain.features.SwerveModule;
 public class Robot extends TimedRobot {
     private DriverOi driverOi;
     private DeputyOi deputyOi;
+    private DigitalInput topLimitSwitch;
+    private DriveTrainComponentsImpl driveTrainComponents;
 
     /**
      * This function is run when the robot is first started up and should be used for any
@@ -32,6 +35,8 @@ public class Robot extends TimedRobot {
         KeepAngleController.init();
         driverOi = new DriverOi();
         deputyOi = new DeputyOi();
+        topLimitSwitch = new DigitalInput(9);
+        driveTrainComponents = new DriveTrainComponentsImpl();
     }
 
     /**
@@ -59,6 +64,13 @@ public class Robot extends TimedRobot {
 
     @Override
     public void disabledPeriodic() {
+        if (!topLimitSwitch.get()) {
+            DriveTrain.getInstance().coastMode();
+            System.out.println("true");
+        } else {
+            DriveTrain.getInstance().breakMode();
+            System.out.println("false");
+        }
     }
 
     /**
