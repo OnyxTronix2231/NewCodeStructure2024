@@ -59,7 +59,7 @@ public class ElevatorComponentsImpl implements ElevatorComponents {
     }
 
     @Override
-    public BasePigeon getGyro() {
+    public PigeonIMU getGyro() {
         return gyro;
     }
 

@@ -27,7 +27,7 @@ public class Elevator {
     }
 
     public double getFusedHeading() {
-        return components.getGyro().getPitch();
+        return components.getGyro().getFusedHeading();
     }
 
     public void shake(double degree) {
