@@ -2,7 +2,6 @@ package frc.robot.Commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.telescope.Telescope;
-
 import java.util.function.DoubleSupplier;
 
 public class TelescopeBySpeed extends CommandBase {
