@@ -7,18 +7,35 @@ import frc.robot.led.LED;
 
 import static frc.robot.led.LEDConstants.BLACK;
 
-public class BlinkOnce extends SequentialCommandGroup {
+public class Blink extends SequentialCommandGroup {
 
-    private final LED led;
+    private final LED led = LED.getInstance();
+    private int ranTimes = 0;
 
-    public BlinkOnce(int red, int green, int blue, double blinkDelays) {
-        led = LED.getInstance();
-        addRequirements(led);
-        addCommands(
-                new InstantCommand(()-> led.setStrip(red, green, blue)),
-                new WaitCommand(blinkDelays),
-                new InstantCommand(()-> led.setStrip(BLACK.getRed(), BLACK.getGreen(), BLACK.getBlue())),
-                new WaitCommand(blinkDelays)
-        );
+    public Blink(int red, int green, int blue, double blinkDelays, int timesToBlink) {
+        addCommands
+                (
+                        new SequentialCommandGroup(
+                                new BlinkOnce(red, green, blue, blinkDelays),
+                                new InstantCommand(() -> ranTimes++)
+                        ).repeatedly().
+                                until(() -> ranTimes == timesToBlink)
+                );
+    }
+
+    private class BlinkOnce extends SequentialCommandGroup {
+
+        private LED led;
+
+        public BlinkOnce(int red, int green, int blue, double blinkDelays) {
+            led = LED.getInstance();
+            addRequirements(led);
+            addCommands(
+                    new InstantCommand(() -> led.setStrip(red, green, blue)),
+                    new WaitCommand(blinkDelays),
+                    new InstantCommand(() -> led.setStrip(BLACK.getRed(), BLACK.getGreen(), BLACK.getBlue())),
+                    new WaitCommand(blinkDelays)
+            );
+        }
     }
 }
