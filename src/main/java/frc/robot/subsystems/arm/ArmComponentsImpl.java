@@ -32,4 +32,5 @@ public class ArmComponentsImpl implements ArmComponents{
     public WPI_TalonSRX getOpeningMotor() {
         return armOpeningMotor;
     }
+
 }

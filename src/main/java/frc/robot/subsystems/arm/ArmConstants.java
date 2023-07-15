@@ -1,6 +1,5 @@
 package frc.robot.subsystems.arm;
 
-import edu.wpi.first.math.controller.PIDController;
 import pid.PIDFTerms;
 
 public class ArmConstants {
