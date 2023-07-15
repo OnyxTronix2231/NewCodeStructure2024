@@ -29,6 +29,13 @@ public class Telescope extends SubsystemBase {
         components.getPositionController().setSetpoint(setPoint);
     }
 
+    public void updateSetPoint(double setPoint){
+        components.getPositionController().update(setPoint);
+    }
+
+    public void StopSetPoint(){
+            setSpeed(0);
+    }
     public boolean isOnSetPoint() {
         return components.getPositionController().isOnTarget(20);
     }

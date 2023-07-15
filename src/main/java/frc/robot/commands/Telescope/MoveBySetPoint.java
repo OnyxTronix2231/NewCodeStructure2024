@@ -2,6 +2,7 @@ package frc.robot.commands.Telescope;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.Telescope.Telescope;
+import frc.robot.subsystems.Telescope.TelescopeComponents;
 
 
 import java.util.function.DoubleSupplier;
@@ -9,6 +10,7 @@ import java.util.function.DoubleSupplier;
 public class MoveBySetPoint extends CommandBase {
     private final Telescope telescope;
     private final DoubleSupplier setPoint;
+    private TelescopeComponents components;
     public  MoveBySetPoint(DoubleSupplier setPoint) {
         this.setPoint = setPoint;
         telescope = Telescope.getInstance();
@@ -21,7 +23,7 @@ public class MoveBySetPoint extends CommandBase {
 
     @Override
     public void execute() {
-        telescope.moveBySetPoint(setPoint.getAsDouble());
+        telescope.updateSetPoint(setPoint.getAsDouble());
     }
 
     @Override
@@ -31,7 +33,8 @@ public class MoveBySetPoint extends CommandBase {
 
     @Override
     public void end(boolean interrupted) {
-        telescope.setSpeed(0);
-    }
+        telescope.StopSetPoint();
+        components.getPositionController().disable();
+         }
 }
 
