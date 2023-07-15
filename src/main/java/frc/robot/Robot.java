@@ -1,20 +1,7 @@
 package frc.robot;
 
-import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
-import frc.robot.commands.Test;
-import frc.robot.led.LED;
-import frc.robot.led.LEDComponentsImpl;
-import frc.robot.robotControl.DeputyOi;
-import frc.robot.robotControl.DriverOi;
-import frc.robot.subsystems.driveTrain.DriveTrain;
-import frc.robot.subsystems.driveTrain.DriveTrainComponents;
-import frc.robot.subsystems.driveTrain.DriveTrainComponentsImpl;
-import frc.robot.subsystems.driveTrain.features.KeepAngleController;
-import frc.robot.subsystems.driveTrain.features.PoseEstimator;
-import frc.robot.subsystems.driveTrain.features.SwerveModule;
-import sensors.Switch.Switch;
 
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to
@@ -23,9 +10,7 @@ import sensors.Switch.Switch;
  * project.
  */
 public class Robot extends TimedRobot {
-    private DriverOi driverOi;
-    private DeputyOi deputyOi;
-    private DigitalInput toplimitSwitch;
+
 
 
 
@@ -35,13 +20,6 @@ public class Robot extends TimedRobot {
      */
     @Override
     public void robotInit() {
-        DriveTrain.init(new DriveTrainComponentsImpl());
-        LED.init(new LEDComponentsImpl());
-        PoseEstimator.init();
-        KeepAngleController.init();
-        driverOi = new DriverOi();
-        deputyOi = new DeputyOi();
-        toplimitSwitch = new DigitalInput(9);
     }
 
     /**
@@ -69,11 +47,6 @@ public class Robot extends TimedRobot {
 
     @Override
     public void disabledPeriodic() {
-        if(! toplimitSwitch.get()){
-            LED.getInstance().setStrip(0,255,0);
-        }else {
-            LED.getInstance().setStrip(255,0,0);
-        }
     }
 
     /**
