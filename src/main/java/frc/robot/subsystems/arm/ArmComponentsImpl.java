@@ -6,8 +6,6 @@ import pid.CtrePIDController;
 import pid.PIDControlMode;
 import sensors.counter.TalonEncoder;
 
-import static frc.robot.subsystems.arm.ArmConstants.*;
-
 public class ArmComponentsImpl implements ArmComponents{
     WPI_TalonSRX armOpeningMotor;
 
@@ -33,4 +31,18 @@ public class ArmComponentsImpl implements ArmComponents{
         return armOpeningMotor;
     }
 
+    @Override
+    public CtreMotionMagicController getPositionController() {
+        return motionMagicController;
+    }
+
+    @Override
+    public CtrePIDController getVelocityController() {
+        return pidController;
+    }
+
+    @Override
+    public TalonEncoder getEncoder() {
+        return encoder;
+    }
 }
