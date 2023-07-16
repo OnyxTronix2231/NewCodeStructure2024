@@ -32,6 +32,7 @@ public class DriveTrainComponentsImpl implements DriveTrainComponnents {
         this.slaveRight = new WPI_VictorSPX(SLAVE_RIGHT_ID);
         slaveRight.configFactoryDefault();
         slaveRight.follow(masterRight);
+        slaveRight.setInverted(true);
 
         this.secondSlaveLeft = new WPI_VictorSPX(5);
         secondSlaveLeft.configFactoryDefault();
@@ -40,7 +41,7 @@ public class DriveTrainComponentsImpl implements DriveTrainComponnents {
         this.secondSlaveRight = new WPI_VictorSPX(6);
         secondSlaveRight.configFactoryDefault();
         secondSlaveRight.follow(masterRight);
-
+        secondSlaveRight.setInverted(true);
         this.differentialDrive = new DifferentialDrive(masterLeft, masterRight);
         differentialDrive.setSafetyEnabled(true);
     }
