@@ -8,16 +8,23 @@ import edu.wpi.first.wpilibj.util.Color;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.PrintCommand;
 import frc.robot.commands.driveTrain.MoveByDistance;
+import frc.robot.commands.led.Blink;
 import frc.robot.subsystems.driveTrain.DriveTrain;
 import frc.robot.subsystems.driveTrain.DriveTrainComponents;
 import frc.robot.subsystems.driveTrain.features.PoseEstimator;
 import frc.robot.subsystems.driveTrain.features.SwerveModule;
 import frc.robot.led.LED;
 
+import java.util.function.DoubleSupplier;
+import java.util.function.IntSupplier;
+import java.util.function.LongSupplier;
+
 public class DriveTrainShuffleBoard {
 
     private DriveTrain driveTrain;
     private ShuffleboardTab tab;
+
+    private int red;
 
     public DriveTrainShuffleBoard(DriveTrainComponents components) {
         driveTrain = DriveTrain.getInstance();
@@ -49,5 +56,8 @@ public class DriveTrainShuffleBoard {
         // Get current color
 
         tab.add("change color null", new InstantCommand(()-> LED.getInstance().setStrip(0, 0, 0)));
+
+
+        tab.add("change color Blink", new InstantCommand(()-> new Blink(183,30,190,1.5,5)));
     }
 }
