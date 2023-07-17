@@ -40,7 +40,7 @@ public class DriverOi {
 
         Trigger Concept = controller.rightTrigger();
         Trigger eject  = controller.leftTrigger();
-        Concept.whileTrue(new MoveByYaniv(()->-0.9));
-        eject.whileTrue(new MoveByYaniv(()->0.9));
+        Concept.whileTrue(new MoveByYaniv(()->-0.6));
+        eject.whileTrue(new MoveByYaniv(()->0.6));
     }
 }
