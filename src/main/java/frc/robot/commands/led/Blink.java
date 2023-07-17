@@ -9,7 +9,6 @@ import static frc.robot.led.LEDConstants.BLACK;
 
 public class Blink extends SequentialCommandGroup {
 
-    private final LED led = LED.getInstance();
     private int ranTimes = 0;
 
     public Blink(int red, int green, int blue, double blinkDelays, int timesToBlink) {
