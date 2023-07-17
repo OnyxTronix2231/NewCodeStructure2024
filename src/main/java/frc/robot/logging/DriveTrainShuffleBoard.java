@@ -9,6 +9,7 @@ import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.PrintCommand;
 import frc.robot.commands.driveTrain.MoveByDistance;
 import frc.robot.commands.led.Blink;
+import frc.robot.commands.led.Gaming;
 import frc.robot.subsystems.driveTrain.DriveTrain;
 import frc.robot.subsystems.driveTrain.DriveTrainComponents;
 import frc.robot.subsystems.driveTrain.features.PoseEstimator;
@@ -59,5 +60,6 @@ public class DriveTrainShuffleBoard {
 
 
         tab.add("change color Blink", new InstantCommand(()-> new Blink(183,30,190,1.5,5)));
+        tab.add("change color Gaming", new InstantCommand(()-> new Gaming(3)));
     }
 }
