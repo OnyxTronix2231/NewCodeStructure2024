@@ -7,6 +7,7 @@ import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.commands.driveTrain.MoveByDistance;
+import frc.robot.commands.driveTrain.MoveByYaniv;
 import frc.robot.commands.driveTrain.ResetPose;
 import frc.robot.commands.driveTrain.SwerveDrive;
 import frc.robot.subsystems.driveTrain.DriveTrain;
@@ -21,7 +22,7 @@ public class DriverOi {
         controller = new CommandPlaystation5Controller(DRIVE_JOYSTICK_PORT);
 
         Trigger resetPose = controller.centerLeft();
-        Trigger moveByDistance = controller.rightTrigger();
+//        Trigger moveByDistance = controller.rightTrigger();
 
         CommandJoystickAxis xAxis = controller.leftYAxis();
         CommandJoystickAxis yAxis = controller.leftXAxis();
@@ -35,6 +36,11 @@ public class DriverOi {
         ));
 
         resetPose.onTrue(new ResetPose(new Pose2d()));
-        moveByDistance.whileTrue(new MoveByDistance(new Pose2d(3, 0, Rotation2d.fromDegrees(-90))));
+//        moveByDistance.whileTrue(new MoveByDistance(new Pose2d(3, 0, Rotation2d.fromDegrees(-90))));
+
+        Trigger Concept = controller.rightTrigger();
+        Trigger eject  = controller.leftTrigger();
+        Concept.whileTrue(new MoveByYaniv(()->-0.9));
+        eject.whileTrue(new MoveByYaniv(()->0.9));
     }
 }

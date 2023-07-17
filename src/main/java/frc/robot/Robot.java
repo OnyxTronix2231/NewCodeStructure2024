@@ -5,6 +5,8 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.robotControl.DeputyOi;
 import frc.robot.robotControl.DriverOi;
+import frc.robot.subsystems.concept.Concept;
+import frc.robot.subsystems.concept.ConceptComponentsImpl;
 import frc.robot.subsystems.driveTrain.DriveTrain;
 import frc.robot.subsystems.driveTrain.DriveTrainComponents;
 import frc.robot.subsystems.driveTrain.DriveTrainComponentsImpl;
@@ -21,7 +23,6 @@ import frc.robot.subsystems.driveTrain.features.SwerveModule;
 public class Robot extends TimedRobot {
     private DriverOi driverOi;
     private DeputyOi deputyOi;
-    private DigitalInput topLimitSwitch;
     private DriveTrainComponentsImpl driveTrainComponents;
 
     /**
@@ -30,12 +31,12 @@ public class Robot extends TimedRobot {
      */
     @Override
     public void robotInit() {
+        Concept.initInstance(new ConceptComponentsImpl());
         DriveTrain.init(new DriveTrainComponentsImpl());
         PoseEstimator.init();
         KeepAngleController.init();
         driverOi = new DriverOi();
         deputyOi = new DeputyOi();
-        topLimitSwitch = new DigitalInput(9);
         driveTrainComponents = new DriveTrainComponentsImpl();
     }
 
@@ -64,13 +65,7 @@ public class Robot extends TimedRobot {
 
     @Override
     public void disabledPeriodic() {
-        if (!topLimitSwitch.get()) {
-            DriveTrain.getInstance().coastMode();
-            System.out.println("true");
-        } else {
-            DriveTrain.getInstance().breakMode();
-            System.out.println("false");
-        }
+
     }
 
     /**

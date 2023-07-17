@@ -34,10 +34,10 @@ public class DriveTrainConstants {
     public static final int BOTTOM_RIGHT_TURNING_ENCODER_ID = 7;
     public static final int BOTTOM_LEFT_TURNING_ENCODER_ID = 10;
 
-    public static final double ANGLE_OFFSET_FL = 92.461;
-    public static final double ANGLE_OFFSET_FR = 9.141;
-    public static final double ANGLE_OFFSET_BL = 93.428;
-    public static final double ANGLE_OFFSET_BR = 89.033;
+    public static final double ANGLE_OFFSET_FL = 95.010 ;
+    public static final double ANGLE_OFFSET_FR = 7.734 ;
+    public static final double ANGLE_OFFSET_BL = 97.734 ;
+    public static final double ANGLE_OFFSET_BR = 91.406 ;
 
     public static final int PIGEON2_ID = 0;
 
@@ -68,16 +68,16 @@ public class DriveTrainConstants {
     public static final double MIN_TURNING_RAD_PS = 0.4;
     public static final double MIN_VELOCITY_MPS = MAX_VELOCITY_MPS * 0.01;
 
-    public static final PIDFTerms DRIVE_MOTOR_PID = new PIDFTerms(0.1, 0, 0, 1023 / 21375);
-    public static final PIDFTerms TURNING_MOTOR_PID = new PIDFTerms(0.3, 0, 0, 0);
+    public static final PIDFTerms DRIVE_MOTOR_PID = new PIDFTerms(0.2, 0, 0, 1023 / 21375);
+    public static final PIDFTerms TURNING_MOTOR_PID = new PIDFTerms(0.7, 0, 0, 0);
     public static final int TURNING_MOTOR_CRUISE_VEL = 17000;
     public static final int TURNING_MOTOR_ACC = 40000;
     public static final int TURNING_MOTOR_ACC_SMOOTHING = 0;
 
-    public static final double DRIVE_SENSITIVITY = 0.5;
-    public static final double ROTATION_SENSITIVITY = 0.5;
+    public static final double DRIVE_SENSITIVITY = 1;
+    public static final double ROTATION_SENSITIVITY = 0.7;
 
-    public static final PIDFTerms KEEP_ANGLE_PID = new PIDFTerms(20, 0.07, 0, 0);
+    public static final PIDFTerms KEEP_ANGLE_PID = new PIDFTerms(5, 0.01, 0, 0);
 
     public static final double KEEP_ANGLE_ROTATION_DELAY = 0.5;
     public static final double KEEP_ANGLE_DRIVE_DELAY = 0.25;
