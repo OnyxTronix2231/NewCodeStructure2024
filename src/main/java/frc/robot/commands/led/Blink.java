@@ -17,7 +17,8 @@ public class Blink extends SequentialCommandGroup {
                         new SequentialCommandGroup(
                                 new BlinkOnce(red, green, blue, blinkDelays),
                                 new InstantCommand(() -> ranTimes++)
-                        ).repeatedly().until(() -> ranTimes == timesToBlink)
+                        ).repeatedly().until(() -> ranTimes == timesToBlink),
+                        new InstantCommand(()-> ranTimes = 0)
                 );
     }
 
