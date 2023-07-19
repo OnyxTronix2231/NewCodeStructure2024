@@ -25,6 +25,10 @@ public class DriveTrain extends SubsystemBase {
         return instance;
     }
 
+    public DriveTrainComponnents getDriveTrainComponnents() {
+        return driveTrainComponnents;
+    }
+
     public static DriveTrain getInstance() {
         return instance;
     }

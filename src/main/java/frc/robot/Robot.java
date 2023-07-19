@@ -37,7 +37,6 @@ public class Robot extends LoggedRobot {
         Logger.getInstance().recordMetadata("ProjectName", "MyProject"); // Set a metadata value
 
         if (isReal()) {
-            Logger.getInstance().addDataReceiver(new WPILOGWriter("/media/sda1/")); // Log to a USB stick
             Logger.getInstance().addDataReceiver(new NT4Publisher()); // Publish data to NetworkTables
             new PowerDistribution(1, PowerDistribution.ModuleType.kRev); // Enables power distribution logging
         } else {
@@ -65,6 +64,7 @@ public class Robot extends LoggedRobot {
         // and running subsystem periodic() methods.  This must be called from the robot's periodic
         // block in order for anything in the Command-based framework to work.
         CommandScheduler.getInstance().run();
+        Logger.getInstance().recordOutput("speed",DriveTrain.getInstance().getDriveTrainComponnents().getMasterRight().get());
     }
 
     /**
