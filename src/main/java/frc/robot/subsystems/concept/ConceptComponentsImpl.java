@@ -5,7 +5,6 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 public class ConceptComponentsImpl implements ConceptComponents{
     private final WPI_TalonSRX yaniv;
-
     private final WPI_TalonSRX slaveYaniv;
 
     public ConceptComponentsImpl() {

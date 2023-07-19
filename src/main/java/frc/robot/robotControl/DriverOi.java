@@ -46,6 +46,5 @@ public class DriverOi {
         eject.whileTrue(new MoveByYaniv(()->0.85));
         CubeIn.whileTrue(new SystemBySpeed(()-> 0.85));
         CubeOut.whileTrue(new SystemBySpeed(()-> -0.85));
-
     }
 }
