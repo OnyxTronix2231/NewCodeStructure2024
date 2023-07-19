@@ -1,8 +1,9 @@
 package frc.robot.subsystems.tank;
 
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
-public class TankDriveTrain {
+public class TankDriveTrain extends SubsystemBase {
     private final Joystick controller;
     private final TankComponents tankComponents;
 
