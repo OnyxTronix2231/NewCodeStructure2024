@@ -13,6 +13,8 @@ import frc.robot.subsystems.driveTrain.DriveTrainComponentsImpl;
 import frc.robot.subsystems.driveTrain.features.KeepAngleController;
 import frc.robot.subsystems.driveTrain.features.PoseEstimator;
 import frc.robot.subsystems.driveTrain.features.SwerveModule;
+import frc.robot.subsystems.offSeasonSystem.System;
+import frc.robot.subsystems.offSeasonSystem.SystemComponentsComponentsImpl;
 
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to
@@ -32,6 +34,7 @@ public class Robot extends TimedRobot {
     @Override
     public void robotInit() {
         Concept.initInstance(new ConceptComponentsImpl());
+        System.initInstance(new SystemComponentsComponentsImpl());
         DriveTrain.init(new DriveTrainComponentsImpl());
         PoseEstimator.init();
         KeepAngleController.init();

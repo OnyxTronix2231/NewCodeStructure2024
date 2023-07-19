@@ -4,12 +4,11 @@ import commandControl.CommandConsoleController;
 import commandControl.CommandJoystickAxis;
 import commandControl.CommandPlaystation5Controller;
 import edu.wpi.first.math.geometry.Pose2d;
-import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
-import frc.robot.commands.driveTrain.MoveByDistance;
 import frc.robot.commands.driveTrain.MoveByYaniv;
 import frc.robot.commands.driveTrain.ResetPose;
 import frc.robot.commands.driveTrain.SwerveDrive;
+import frc.robot.commands.driveTrain.SystemBySpeed;
 import frc.robot.subsystems.driveTrain.DriveTrain;
 
 import static frc.robot.Configurations.DRIVE_JOYSTICK_PORT;
@@ -40,7 +39,13 @@ public class DriverOi {
 
         Trigger Concept = controller.rightTrigger();
         Trigger eject  = controller.leftTrigger();
-        Concept.whileTrue(new MoveByYaniv(()->-0.6));
-        eject.whileTrue(new MoveByYaniv(()->0.6));
+        Trigger CubeIn = controller.bumperRight();
+        Trigger CubeOut = controller.bumperLeft();
+
+        Concept.whileTrue(new MoveByYaniv(()->-0.85));
+        eject.whileTrue(new MoveByYaniv(()->0.85));
+        CubeIn.whileTrue(new SystemBySpeed(()-> 0.85));
+        CubeOut.whileTrue(new SystemBySpeed(()-> -0.85));
+
     }
 }
