@@ -2,7 +2,10 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
-import frc.robot.test.LedShuffleboard;
+import frc.robot.robotControl.DriverOI;
+import frc.robot.subsystems.tankDriveTrain.TankComponentsImpl;
+import frc.robot.subsystems.tankDriveTrain.TankDriveTrain;
+
 
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to
@@ -11,6 +14,7 @@ import frc.robot.test.LedShuffleboard;
  * project.
  */
 public class Robot extends TimedRobot {
+    private DriverOI driverOi;
 
 
 
@@ -21,7 +25,8 @@ public class Robot extends TimedRobot {
      */
     @Override
     public void robotInit() {
-        LedShuffleboard.init();
+        TankDriveTrain.initTankDriveTrain(new TankComponentsImpl());
+        driverOi = new DriverOI();
     }
 
     /**
