@@ -2,7 +2,9 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
+import frc.robot.robotControl.DeputyOi;
 import frc.robot.robotControl.DriverOI;
+import frc.robot.subsystems.tankDriveTrain.TankComponents;
 import frc.robot.subsystems.tankDriveTrain.TankComponentsImpl;
 import frc.robot.subsystems.tankDriveTrain.TankDriveTrain;
 
@@ -15,6 +17,7 @@ import frc.robot.subsystems.tankDriveTrain.TankDriveTrain;
  */
 public class Robot extends TimedRobot {
     private DriverOI driverOi;
+    private DeputyOi deputyOi;
 
 
 
@@ -25,8 +28,11 @@ public class Robot extends TimedRobot {
      */
     @Override
     public void robotInit() {
+
         TankDriveTrain.initTankDriveTrain(new TankComponentsImpl());
         driverOi = new DriverOI();
+        deputyOi = new DeputyOi();
+
     }
 
     /**
@@ -79,6 +85,7 @@ public class Robot extends TimedRobot {
      */
     @Override
     public void teleopPeriodic() {
+
     }
 
     @Override

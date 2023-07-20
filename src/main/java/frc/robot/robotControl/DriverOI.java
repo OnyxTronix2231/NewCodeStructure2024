@@ -13,8 +13,8 @@ public class DriverOI {
         controller = new CommandPlaystation5Controller(DRIVE_JOYSTICK_PORT);
         TankDriveTrain.getInstance().setDefaultCommand(new DriveCommand(controller::getLeftY, controller::getRightX));
 
-        controller.buttonUp().whileTrue(new Rotate90DegreesCommand());
 
+        controller.buttonUp().whileTrue(new Rotate90DegreesCommand());
 
     }
 
