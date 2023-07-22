@@ -2,6 +2,7 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
+import frc.robot.logging.TestShuffleBoard;
 import frc.robot.robotControl.BackgroundCommands;
 import frc.robot.robotControl.DeputyOi;
 import frc.robot.robotControl.DriverOi;
@@ -28,6 +29,8 @@ public class Robot extends TimedRobot {
 
         driverOi = new DriverOi();
         deputyOi = new DeputyOi();
+
+        new TestShuffleBoard();
     }
 
     /**
