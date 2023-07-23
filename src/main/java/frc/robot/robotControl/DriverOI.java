@@ -2,6 +2,7 @@ package frc.robot.robotControl;
 
 import commandControl.CommandPlaystation5Controller;
 import frc.robot.commands.DriveCommand;
+import frc.robot.commands.Rotate180DegreesCommand;
 import frc.robot.commands.Rotate90DegreesCommand;
 import frc.robot.subsystems.tankDriveTrain.TankDriveTrain;
 import static frc.robot.Configurations.DRIVE_JOYSTICK_PORT;
@@ -15,6 +16,8 @@ public class DriverOI {
 
 
         controller.buttonUp().whileTrue(new Rotate90DegreesCommand());
+
+        controller.buttonRight().onTrue(new Rotate180DegreesCommand());
 
     }
 

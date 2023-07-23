@@ -2,6 +2,7 @@ package frc.robot.subsystems.tankDriveTrain;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
+import com.ctre.phoenix.sensors.WPI_PigeonIMU;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.motorcontrol.MotorController;
 
@@ -22,6 +23,8 @@ public class TankComponentsImpl implements TankComponents{
     private final WPI_VictorSPX leftTopSlaveMotor;
 
     private final WPI_VictorSPX leftBottomSlaveMotor;
+
+    private final WPI_PigeonIMU pigeon;
 
     private final DifferentialDrive differentialDrive;
 
@@ -45,6 +48,7 @@ public class TankComponentsImpl implements TankComponents{
         leftBottomSlaveMotor.follow(leftMasterMotor);
         leftBottomSlaveMotor.setInverted(true);
 
+        pigeon = new WPI_PigeonIMU(PIGEON_ID);
 
         differentialDrive = new DifferentialDrive(rightMasterMotor, leftMasterMotor);
 
@@ -61,7 +65,13 @@ public class TankComponentsImpl implements TankComponents{
     }
 
     @Override
+    public WPI_PigeonIMU getPigeon() {
+        return pigeon;
+    }
+
+    @Override
     public DifferentialDrive getDifferentialDrive() {
         return differentialDrive;
     }
+
 }

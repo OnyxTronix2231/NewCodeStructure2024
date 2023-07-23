@@ -30,6 +30,14 @@ public class TankDriveTrain extends SubsystemBase {
         return instance;
     }
 
+    public double getRotation(){
+           double yaw = components.getPigeon().getYaw();
+            return(yaw);
+    }
+    public void resetRotation(){
+           components.getPigeon().reset();
+    }
+
 
 
     }
