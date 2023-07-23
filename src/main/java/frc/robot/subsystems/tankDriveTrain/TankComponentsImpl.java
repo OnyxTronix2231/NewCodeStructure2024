@@ -4,7 +4,8 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.motorcontrol.MotorController;
-import frc.robot.subsystems.tankDriveTrain.*;
+
+import static frc.robot.subsystems.tankDriveTrain.TankConstants.*;
 
 public class TankComponentsImpl implements TankComponents{
 
@@ -25,22 +26,22 @@ public class TankComponentsImpl implements TankComponents{
     private final DifferentialDrive differentialDrive;
 
     public TankComponentsImpl(){
-        rightMasterMotor = new WPI_TalonSRX(constants.RIGHT_MASTER_ID);
+        rightMasterMotor = new WPI_TalonSRX(RIGHT_MASTER_ID);
 
-        rightTopSlaveMotor = new WPI_VictorSPX(constants.RIGHT_TOP_SLAVE_ID);
+        rightTopSlaveMotor = new WPI_VictorSPX(RIGHT_TOP_SLAVE_ID);
         rightTopSlaveMotor.follow(rightMasterMotor);
 
-        rightBottomSlaveMotor = new WPI_VictorSPX(constants.RIGHT_BOTTOM_SLAVE_ID);
+        rightBottomSlaveMotor = new WPI_VictorSPX(RIGHT_BOTTOM_SLAVE_ID);
         rightBottomSlaveMotor.follow(rightMasterMotor);
 
-        leftMasterMotor = new WPI_TalonSRX(constants.LEFT_MASTER_ID);
+        leftMasterMotor = new WPI_TalonSRX(LEFT_MASTER_ID);
         leftMasterMotor.setInverted(true);
 
-        leftTopSlaveMotor = new WPI_VictorSPX(constants.LEFT_TOP_SLAVE_ID);
+        leftTopSlaveMotor = new WPI_VictorSPX(LEFT_TOP_SLAVE_ID);
         leftTopSlaveMotor.follow(leftMasterMotor);
         leftTopSlaveMotor.setInverted(true);
 
-        leftBottomSlaveMotor = new WPI_VictorSPX(constants.LEFT_BOTTOM_SLAVE_ID);
+        leftBottomSlaveMotor = new WPI_VictorSPX(LEFT_BOTTOM_SLAVE_ID);
         leftBottomSlaveMotor.follow(leftMasterMotor);
         leftBottomSlaveMotor.setInverted(true);
 
