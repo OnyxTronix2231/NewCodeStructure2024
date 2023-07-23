@@ -36,8 +36,6 @@ public class TankDriveTrain extends SubsystemBase {
     }
     public void resetRotation(){
            components.getPigeon().reset();
+
     }
-
-
-
     }
