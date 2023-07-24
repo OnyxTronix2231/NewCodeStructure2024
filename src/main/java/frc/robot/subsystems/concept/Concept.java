@@ -13,7 +13,6 @@ public class Concept extends SubsystemBase {
 
     public void moveBySpeed(double speed) {
         components.getYaniv().set(speed);
-        components.getRightYaniv().set(speed);
     }
 
     public void stop() {

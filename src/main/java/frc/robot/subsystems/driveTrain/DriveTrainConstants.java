@@ -63,7 +63,7 @@ public class DriveTrainConstants {
     // controllers and drive settings
 
     public static final double MAX_TURNING_RAD_PS = 1.5 * Math.PI;
-    public static final double MAX_VELOCITY_MPS = 4;
+    public static final double MAX_VELOCITY_MPS = 3;
 
     public static final double MIN_TURNING_RAD_PS = 0.4;
     public static final double MIN_VELOCITY_MPS = MAX_VELOCITY_MPS * 0.01;
