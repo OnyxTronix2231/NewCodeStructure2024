@@ -4,6 +4,7 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.robotControl.DeputyOi;
 import frc.robot.robotControl.DriverOI;
+import frc.robot.subsystems.tankDriveTrain.DriveTrainShuffleboard;
 import frc.robot.subsystems.tankDriveTrain.TankComponents;
 import frc.robot.subsystems.tankDriveTrain.TankComponentsImpl;
 import frc.robot.subsystems.tankDriveTrain.TankDriveTrain;
@@ -30,6 +31,7 @@ public class Robot extends TimedRobot {
     public void robotInit() {
 
         TankDriveTrain.initTankDriveTrain(new TankComponentsImpl());
+        new DriveTrainShuffleboard(new TankComponentsImpl());
         driverOi = new DriverOI();
         deputyOi = new DeputyOi();
 
