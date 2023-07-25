@@ -39,8 +39,8 @@ public class DriverOi {
 
         Trigger Concept = controller.rightTrigger();
         Trigger eject  = controller.leftTrigger();
-        Trigger CubeIn = controller.buttonDown();
-        Trigger CubeOut = controller.buttonUp();
+        Trigger CubeIn = controller.bumperRight();
+        Trigger CubeOut = controller.bumperLeft();
 
         Concept.whileTrue(new MoveByYaniv(()->-0.85));
         eject.whileTrue(new MoveByYaniv(()->0.85));
